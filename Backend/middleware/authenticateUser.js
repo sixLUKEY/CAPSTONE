@@ -6,8 +6,8 @@ config()
 export function createToken( user ){
     return sign(
         {
-            email: user.email,
-            password: user.password
+            email: user.userEmail,
+            password: user.userPass
         },
         process.env.secret_key,
         {

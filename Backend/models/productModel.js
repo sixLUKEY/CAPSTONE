@@ -1,72 +1,81 @@
-import db from '../config/database'
-
+import db from "../config/database.js";
 
 //Select all products
-export const getProducts = ( result ) => {
-    db.query( 'SELECT id, name, decsription, model, character, price, level, url, quantity FROM products',
-    ( err, results ) => {
-        if ( err ) {
-            console.log( err )
-            result( err, null )
-        } else {
-            result( null, results )
-        }
+export const getProducts = (result) => {
+  db.query(
+    "SELECT prodID, prodName, descr, model, prodCharacter, price, prodLevel, url, quantity FROM products",
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        result(err, null);
+      } else {
+        result(null, results);
+      }
     }
-    )
-}
+  );
+};
 
 //Select single product
-export const getProductById = ( id, result ) => {
-    db.query(
-        'SELECT id, name, decsription, model, character, price, level, url, quantity FROM products WHERE id = ?',
-        [id],
-        ( err, results ) => {
-            if ( err ) {
-                console.log( err )
-                result( err, null )
-            } else {
-                result( null, results[0] )
-            }
-        }
-    )
-}
+export const getProductById = (id, result) => {
+  db.query(
+    "SELECT prodID, prodName, descr, model, prodCharacter, price, prodLevel, url, quantity FROM products WHERE prodID = ?",
+    [id],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        result(err, null);
+      } else {
+        result(null, results[0]);
+      }
+    }
+  );
+};
 
 //Insert Product
-export const insertProduct = ( data, result ) => {
-    db.query(
-        'INSERT INTO products SET ?;', [ data ], ( err, results ) => {
-            if ( err ) {
-                console.log( err )
-                result( err, null )
-            } else {
-                result( null, results )
-            }
-        }
-    )
-} 
+export const insertProduct = (data, result) => {
+  db.query("INSERT INTO products SET ?;", [data], (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
+    }
+  });
+};
 
 //Update Product
-export const updateProductById = ( data, id, result ) => {
-    db.query(
-        'UPDATE products SET name = ?, description = ?, model = ?, character = ?, price = ?, level = ?, url = ?, quantity = ? WHERE id = ?',
-        [
-            data.name,
-            data.description,
-            data.model,
-            data.character,
-            data.price,
-            data.level,
-            data.url,
-            data.quantity,
-            id
-        ],
-        ( err, results ) => {
-            if ( err ) {
-                console.log( err )
-                result( err, null )
-            } else {
-                result( null, results )
-            }
-        }
-    )
-}
+export const updateProductById = (data, id, result) => {
+  db.query(
+    "UPDATE products SET prodName = ?, descr = ?, model = ?, prodCharacter = ?, price = ?, prodLevel = ?, url = ?, quantity = ? WHERE prodID = ?",
+    [
+      data.prodName,
+      data.descr,
+      data.model,
+      data.prodCharacter,
+      data.price,
+      data.prodLevel,
+      data.url,
+      data.quantity,
+      id,
+    ],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        result(err, null);
+      } else {
+        result(null, results);
+      }
+    }
+  );
+};
+
+export const deleteProductById = (id, result) => {
+  db.query("DELETE FROM products WHERE prodID = ?", [id], (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
+    }
+  });
+};
