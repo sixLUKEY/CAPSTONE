@@ -4,8 +4,8 @@ import { createToken } from "../middleware/authenticateUser.js"
 
 //Get All Users
 export const showUsers = ( req, res ) => {
-    getUsers((err, results) => {
-        if (err) {
+    getUsers(( err, results ) => {
+        if ( err ) {
             res.send( err )
         } else {
             res.json( results )
