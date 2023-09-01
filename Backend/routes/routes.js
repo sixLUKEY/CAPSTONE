@@ -23,4 +23,22 @@ router.put( '/products/:id', updateProduct )
 //Delete Product
 router.delete( '/products/:id', deleteProduct )
 
+//Get All Users 
+router.get( '/users', showUsers )
+
+//Get single User
+router.get( '/users/:id', showUserById )
+
+//Create User
+router.post( '/users', createUser )
+
+//Update User
+router.put( '/users/:id', updateUser )
+
+//Delete User
+router.delete( '/users/:id', deleteUser )
+
+//Login
+router.post( '/login', userLogin )
+
 export default router

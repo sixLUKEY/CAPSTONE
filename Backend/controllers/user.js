@@ -1,4 +1,4 @@
-import { getUsers, getUserById, insertUser, updateUserById, deletUserById } from "../models/userModel"
+import { getUsers, getUserById, insertUser, updateUserById, deletUserById } from "../models/userModel.js"
 import bcrypt from 'bcrypt'
 import { createToken } from "../middleware/authenticateUser.js"
 
