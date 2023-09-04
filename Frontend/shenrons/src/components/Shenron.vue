@@ -20,7 +20,7 @@
 <style scoped>
 
     .absolute:nth-child(2){
-        animation: float 1s infinite linear;
+        animation: float 4s infinite linear;
     }
 
     .absolute:nth-child(3){
@@ -28,7 +28,7 @@
     }
 
     .absolute:nth-child(4){
-        animation: float 1.2s infinite linear;
+        animation: float 2.2s infinite linear;
     }
 
     .absolute:nth-child(5){

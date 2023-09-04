@@ -1,5 +1,6 @@
 <template>
   <main>
+    <!-- Hero Section -->
     <Hero />
 
     <div class="my-24 flex flex-col items-center">
@@ -18,18 +19,56 @@
       </svg>
     </div>
 
-    
+    <!-- Featured Section -->  
+    <h2 class="text-6xl relative w-fit my-24">Item of the Week</h2>
   </main>
+  
+  <FeaturedItem/>
+  
+  <main>
+    <!-- Featured Characters -->
+    <h2 class="text-6xl relative w-fit my-48">Featured Characters</h2>
+    <FeaturedCharacters/>
+  </main>
+  
 </template>
 
 <script>
-import Hero from "@/components/Hero.vue";
+import Hero from "@/components/Hero.vue"
+import FeaturedItem from "@/components/FeaturedItem.vue"
+import FeaturedCharacters from "@/components/FeaturedCharacters.vue"
 
 export default {
   components: {
     Hero,
+    FeaturedItem,
+    FeaturedCharacters
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+h2::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  border-radius: 999px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  bottom: -15%;
+  right: 0;
+  background-color: var(--secondary-color);
+  border-radius: 999px;
+}
+
+</style>
