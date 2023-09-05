@@ -27,8 +27,11 @@
   
   <main>
     <!-- Featured Characters -->
-    <h2 class="text-6xl relative w-fit my-48">Featured Characters</h2>
+    <h2 class="text-6xl relative w-fit mt-48 mb-24">Featured Characters</h2>
     <FeaturedCharacters/>
+
+    <InfoContainer class="my-48"/>
+    
   </main>
   
 </template>
@@ -37,12 +40,14 @@
 import Hero from "@/components/Hero.vue"
 import FeaturedItem from "@/components/FeaturedItem.vue"
 import FeaturedCharacters from "@/components/FeaturedCharacters.vue"
+import InfoContainer from "@/components/InfoContainer.vue";
 
 export default {
   components: {
     Hero,
     FeaturedItem,
-    FeaturedCharacters
+    FeaturedCharacters,
+    InfoContainer
   },
 };
 </script>

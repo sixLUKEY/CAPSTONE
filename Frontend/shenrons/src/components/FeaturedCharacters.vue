@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex flex-col gap-5 cell my-24">
+    <div class="flex flex-col gap-5 cell ">
       <h1 class="text-7xl text-[#A7EA51] w-fit relative">
         Perfect <span class="text-[#7902A9]">Cell</span>
       </h1>
@@ -36,7 +36,7 @@
       </button>
     </div>
 
-    <div class="flex flex-col gap-5 frieza my-24 items-end">
+    <div class="flex flex-col gap-5 frieza my-36 items-end">
       <h1 class="text-7xl text-[#9E31AE] w-fit relative">Frieza</h1>
 
       <p class="text-xl w-2/4 text-end">
@@ -76,7 +76,7 @@
       </button>
     </div>
 
-    <div class="flex flex-col gap-5 buu my-24">
+    <div class="flex flex-col gap-5 buu my-36">
       <h1 class="text-7xl text-light w-fit relative">
         Kid <span class="text-[#F194AB]">Buu</span>
       </h1>
