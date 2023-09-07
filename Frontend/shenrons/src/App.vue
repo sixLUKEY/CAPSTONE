@@ -34,6 +34,10 @@
   display: none;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 #app {
   font-family: 'Almendra', serif;
   -webkit-font-smoothing: antialiased;

@@ -35,8 +35,6 @@
       </div>
     </div>
 
-    <h2 class="text-6xl relative w-fit my-24">Items</h2>
-
     <div class="productContainer grid grid-cols-3 my-24 gap-5">
       <ProductItem />
       <ProductItem />
@@ -72,25 +70,4 @@ input:focus {
   outline: none;
 }
 
-h2::before {
-  content: "";
-  position: absolute;
-  width: 60%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--primary-color);
-  border-radius: 999px;
-}
-
-h2::after {
-  content: "";
-  position: absolute;
-  width: 60%;
-  height: 2px;
-  bottom: -15%;
-  right: 0;
-  background-color: var(--secondary-color);
-  border-radius: 999px;
-}
 </style>
