@@ -43,8 +43,6 @@
       <ProductItem />
       <ProductItem />
     </div>
-
-    <ItemView/>
   </main>
 </template>
 
