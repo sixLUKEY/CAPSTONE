@@ -1,11 +1,11 @@
 <template>
-    <nav class="flex justify-between items-end xl:mx-80 xl:py-5">
-        <div class="logo">
+    <nav class="flex justify-between items-end lg:mx-20 xl:mx-80 py-5 md:mx-5 sm:mx-5">
+        <div class="logo sm:w-[30%]">
             <router-link to="/">
                 <img src="https://i.postimg.cc/kg0b1yhV/Group-40.png" alt="Shenron Logo">
             </router-link>
         </div>
-        <ul class="flex xl:text-2xl xl:gap-8">
+        <ul class="flex sm:text-lg sm:gap-5 md:text-xl md:gap-5 lg:text-2xl lg:gap-5 xl:text-2xl xl:gap-8">
             <li>
                 <router-link to="/">
                     Home

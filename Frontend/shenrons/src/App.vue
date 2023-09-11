@@ -51,9 +51,31 @@ p{
   font-family: 'Bebas Neue', sans-serif !important;
 }
 
-main{
-  margin: 5rem 20rem;
+
+
+
+@media screen and (min-width: 640px){
+  main{
+    margin: 5rem 1.25rem;
+  }
 }
 
+@media screen and (min-width: 768px){
+  main{
+    margin: 5rem 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  main{
+    margin: 5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 1280px){
+  main{
+  margin: 5rem 20rem;
+  }
+}
 
 </style>

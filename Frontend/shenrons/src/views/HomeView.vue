@@ -20,14 +20,14 @@
     </div>
 
     <!-- Featured Section -->  
-    <h2 class="text-6xl relative w-fit my-24">Item of the Week</h2>
+    <h2 class="md:text-6xl relative w-fit my-24 sm:text-4xl">Item of the Week</h2>
   </main>
   
   <FeaturedItem/>
   
   <main>
     <!-- Featured Characters -->
-    <h2 class="text-6xl relative w-fit mt-48 mb-24">Featured Characters</h2>
+    <h2 class="md:text-6xl relative w-fit mt-48 mb-24 sm:text-4xl">Featured Characters</h2>
     <FeaturedCharacters/>
 
     <InfoContainer class="my-48"/>

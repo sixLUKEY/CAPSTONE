@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="productContainer grid grid-cols-3 my-24 gap-5">
+    <div class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-24 gap-5">
       <ProductItem />
       <ProductItem />
       <ProductItem />

@@ -1,11 +1,11 @@
 <template>
   <section>
     <div class="flex flex-col gap-5 cell ">
-      <h1 class="text-7xl text-[#A7EA51] w-fit relative">
+      <h1 class="md:text-7xl sm:text-6xl text-[#A7EA51] w-fit relative">
         Perfect <span class="text-[#7902A9]">Cell</span>
       </h1>
 
-      <p class="text-xl w-2/4">
+      <p class="md:text-xl w-2/4 sm:text-lg">
         Perfect Cell, a bio-engineered android and key antagonist in "Dragon
         Ball Z," possesses immense power, speed, and regeneration abilities in
         his "Perfect" form. He is known for his cunning and goal to absorb
@@ -13,7 +13,7 @@
         an iconic villain in the series.
       </p>
 
-      <div class="flex gap-10">
+      <div class="flex sm:gap-5">
         <img src="../assets/cell1.png" alt="cell1" />
         <img src="../assets/cell2.png" alt="cell2" />
       </div>
@@ -37,9 +37,9 @@
     </div>
 
     <div class="flex flex-col gap-5 frieza my-36 items-end">
-      <h1 class="text-7xl text-[#9E31AE] w-fit relative">Frieza</h1>
+      <h1 class="md:text-7xl sm:text-6xl text-[#9E31AE] w-fit relative">Frieza</h1>
 
-      <p class="text-xl w-2/4 text-end">
+      <p class="md:text-xl w-2/4 text-end sm:text-lg">
         Frieza, a formidable alien overlord in "Dragon Ball Z," is known for his
         unmatched power and cruelty. His pursuit of power and ability to
         transform drive the series' early plot, resulting in intense battles
@@ -47,7 +47,7 @@
         make him a memorable villain in the franchise.
       </p>
 
-      <div class="flex gap-10">
+      <div class="flex sm:gap-5">
         <img
           src="https://i.postimg.cc/PxJMtbzW/frieza-otso02qx3h82fpnw-1-min.png"
           alt="cell1"
@@ -77,11 +77,11 @@
     </div>
 
     <div class="flex flex-col gap-5 buu my-36">
-      <h1 class="text-7xl text-light w-fit relative">
+      <h1 class="md:text-7xl sm:text-6xl text-light w-fit relative">
         Kid <span class="text-[#F194AB]">Buu</span>
       </h1>
 
-      <p class="text-xl w-2/4">
+      <p class="md:text-xl w-2/4 sm:text-lg">
         Kid Buu, an embodiment of pure chaos in "Dragon Ball Z," is the most
         destructive form of the villain Buu. Unrestrained and devoid of reason,
         he's a relentless force of destruction, posing a grave threat to the
@@ -89,7 +89,7 @@
         the series, embodying unbridled chaos and power.
       </p>
 
-      <div class="flex gap-10">
+      <div class="flex sm:gap-5">
         <img src="https://i.postimg.cc/sXGnf55Z/buu1-min.png" alt="cell1" />
         <img src="https://i.postimg.cc/Jz7PDfb8/bu3-min.png" alt="cell2" />
       </div>

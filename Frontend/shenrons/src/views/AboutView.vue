@@ -76,7 +76,7 @@
         <ol class="flex flex-col gap-3">
           <li>
             <p class="text-xl">
-              <span class="text-3xl text-secondary"
+              <span class="text-3xl md:text-2xl text-secondary"
                 ><span class="text-primary">1.</span> Quality</span
               > : We are driven by our unwavering passion for Dragon Ball Z, and
               we infuse this passion into everything we do.
@@ -84,7 +84,7 @@
           </li>
           <li>
             <p class="text-xl">
-              <span class="text-3xl text-secondary"
+              <span class="text-3xl md:text-2xl text-secondary"
                 ><span class="text-primary">2.</span> Community</span
               > : We are dedicated to offering only the finest, officially
               licensed Dragon Ball Z merchandise, ensuring that every product
@@ -93,7 +93,7 @@
           </li>
           <li>
             <p class="text-xl">
-              <span class="text-3xl text-secondary"
+              <span class="text-3xl md:text-2xl text-secondary"
                 ><span class="text-primary">3.</span> Innovation</span
               > : We value our community of fans and collectors and actively
               engage with them through events, social media, and collaborations.
@@ -101,7 +101,7 @@
           </li>
           <li>
             <p class="text-xl">
-              <span class="text-3xl text-secondary"
+              <span class="text-3xl md:text-2xl text-secondary"
                 ><span class="text-primary">4.</span> Integrity</span
               > : We constantly explore new ways to enhance the Dragon Ball Z
               experience, from unique trinket designs to interactive features on
@@ -110,7 +110,7 @@
           </li>
           <li>
             <p class="text-xl">
-              <span class="text-3xl text-secondary"
+              <span class="text-3xl md:text-2xl text-secondary"
                 ><span class="text-primary">5.</span> Passion</span
               > : We operate with honesty and integrity in every aspect of our
               business, building trust with our customers and partners.
@@ -118,7 +118,7 @@
           </li>
           <li>
             <p class="text-xl">
-              <span class="text-3xl text-secondary"
+              <span class="text-3xl md:text-2xl text-secondary"
                 ><span class="text-primary">6.</span> Customer-Centric</span
               > : Our customers are at the heart of everything we do. We
               prioritize their needs and strive to exceed their expectations.
@@ -126,7 +126,7 @@
           </li>
           <li>
             <p class="text-xl">
-              <span class="text-3xl text-secondary"
+              <span class="text-3xl md:text-2xl text-secondary"
                 ><span class="text-primary">7.</span> Sustainability</span
               > : We are committed to environmentally responsible practices,
               making conscious choices to reduce our impact on the planet.
@@ -142,6 +142,39 @@
         class="w-full"
       />
     </div>
+  </main>
+  <main>
+    <h3 class="text-4xl my-12 md:text-5xl md:my-6">
+      Meet the Team
+    </h3>
+    <section class="flex gap-10">
+      <div class="flex-[3] bg-[#1E1E1E] p-5 gap-5 flex flex-col">
+        <div class="flex justify-between">
+          <div class="flex-1">
+            <img src="https://i.postimg.cc/hjhZN739/User-Circle.png" alt="user">
+          </div>
+          <div class="flex flex-col text-end gap-5 flex-[2]">
+            <p class="text-4xl">
+              Luke Evertson
+            </p>
+            <p class="text-2xl text-primary">
+              Frontend Developer | UI/UX Designer
+            </p>
+            <p class="text-[#D9D9D9] text-xl">
+              Marcoslukerojo@gmail.com
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="text-lg">
+            Lorem ipsum dolor sit amet consectetur. Condimentum id malesuada tristique non mauris leo suspendisse. Ipsum sapien eu ac egestas non. Ultrices imperdiet quis phasellus scelerisque nulla diam fringilla odio. Aliquam morbi lectus pellentesque sed aliquet aliquam sodales. In pretium fringilla faucibus libero dictum suscipit lectus cras accumsan. Lectus ullamcorper faucibus.
+          </p>
+        </div>
+      </div>
+      <div class="flex-[2] flex justify-center items-center">
+        <img src="https://i.postimg.cc/d11HyT2h/team-min.png" alt="dbz-team">
+      </div>
+    </section>
   </main>
 </template>
 
@@ -171,4 +204,5 @@ h2::after {
   background-color: var(--secondary-color);
   border-radius: 999px;
 }
+
 </style>

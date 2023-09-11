@@ -28,8 +28,8 @@
         />
       </svg>
     </div>
-    <div class="flex gap-24">
-      <div class="flex-[2]">
+    <div class="flex sm:gap-10 lg:gap-24">
+      <div class="flex-[2] flex items-center">
         <img
           src="https://i.postimg.cc/3ryMPJL1/pngwing-com-2023-08-28-T203106-1.png"
           alt="dragonball"
@@ -37,11 +37,11 @@
       </div>
       <div class="flex-[3] flex flex-col justify-between">
         <div class="flex justify-between items-end">
-          <h3 class="text-6xl">Dragon Ball</h3>
-          <h5 class="text-3xl text-[#B5B5B5]">All</h5>
+          <h3 class=" sm:text-4xl md:text-5xl lg:text-6xl">Dragon Ball</h3>
+          <h5 class="lg:text-3xl sm:text-2xl text-[#B5B5B5]">All</h5>
         </div>
-        <h5 class="text-4xl text-primary text-end">4 Star - Original</h5>
-        <p class="text-xl">
+        <h5 class="lg:text-4xl md:text-3xl sm:text-2xl text-primary text-end">4 Star - Original</h5>
+        <p class="md:text-xl sm:txt-lg">
           The 4-Star Dragon Ball: A classic symbol of adventure and friendship
           in Dragon Ball Z. This replica faithfully captures its iconic
           four-star design. Perfect for collectors and character customization.
@@ -50,7 +50,7 @@
             <button class="rounded-sm text-primary bg-transparent border border-primary py-2 px-4 font-bold">
                 Add to Cart +
             </button>
-            <h3 class="text-5xl">
+            <h3 class="lg:text-5xl md:text-4xl sm:text-3xl">
                 R 9500
             </h3>
         </div>

@@ -7,17 +7,17 @@
         <img src="../assets/Star.png" alt="star">
         <img src="../assets/Star.png" alt="star">
     </div>
-        <div class=" bg-white p-5 flex flex-col rounded-sm xl:mx-80 skew-y-[10.5deg] featured">
+        <div class=" bg-white p-5 flex flex-col rounded-sm sm:mx-5 md:mx-5 lg:mx-20 xl:mx-80 skew-y-[10.5deg] featured">
           <div class="flex justify-between font-bold">
-            <h3 class="text-5xl text-[#FFF100]">
+            <h3 class="md:text-5xl sm:text-4xl text-[#FFF100]">
               Saiyan Scouter | <span class="text-secondary">#113</span>
             </h3>
             <h5 class="text-2xl text-[#807F7F]">Vegeta</h5>
           </div>
           <div class="flex text-dark gap-5">
             <div class="flex-[5] flex flex-col gap-5 ">
-              <h5 class="text-2xl font-bold">Limited Edition Pink Reader</h5>
-              <p class="text-lg">
+              <h5 class="md:text-2xl sm:text-xl font-bold">Limited Edition Pink Reader</h5>
+              <p class="md:text-lg sm:text-base">
                 Elevate your Saiyan power level with our authentic Saiyan Scouter -
                 a must-have for true Dragon Ball Z fans! This meticulously crafted
                 accessory brings the iconic device from the series to life, allowing
@@ -69,7 +69,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex-[4]">
+            <div class="flex-[4] flex items-center">
                 <img src="../assets/png-transparent-dragon-ball-frieza-vegeta-captain-ginyu-piccolo-radar-fictional-characters-audio-equipment-action-toy-figures1.png" alt="Scouter">
             </div>
           </div>
