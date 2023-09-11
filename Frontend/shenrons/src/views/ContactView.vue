@@ -1,7 +1,10 @@
 <template>
   <main>
     <div class="flex gap-10">
-      <form action="" class="flex-1 md:flex-[3] flex flex-col gap-5 text-white">
+      <form
+        action="POST"
+        class="flex-1 md:flex-[3] flex flex-col gap-5 text-white"
+      >
         <h2 class="text-6xl flex gap-5 items-center">
           Contact Us <span class="flex-1 h-[2px] bg-primary"></span>
         </h2>
@@ -31,6 +34,7 @@
         <div class="flex items-center gap-5">
           <div class="flex-1 h-[2px] bg-[#7C35A9]"></div>
           <button
+            type="submit"
             class="bg-primary text-white w-fit rounded-sm px-5 py-2 text-2xl hover:opacity-90 transition font-bold"
           >
             Submit
@@ -211,7 +215,9 @@
       </div>
     </div>
 
-    <section class="w-full bg-[#1E1E1E] p-5 my-24 rounded-sm flex flex-col gap-5 relative">
+    <section
+      class="w-full bg-[#1E1E1E] p-5 my-24 rounded-sm flex flex-col gap-5 relative"
+    >
       <h4 class="text-3xl">
         If you have any questions or need assistance, feel free to reach out to
         our customer support team. We're here to help!
@@ -219,36 +225,48 @@
 
       <ul class="text-xl">
         <li>
-            <span class="text-secondary">-</span> Email: support@shenronstrinkets.com
+          <span class="text-secondary">-</span> Email:
+          support@shenronstrinkets.com
         </li>
-        <li>
-            <span class="text-secondary">-</span> Phone: +1-123-456-7890
-        </li>
+        <li><span class="text-secondary">-</span> Phone: +1-123-456-7890</li>
       </ul>
 
       <h5 class="text-2xl">
-        Our customer support hours are &nbsp;<span class="text-primary">Monday to Friday, 9:00 AM - 6:00 PM (local time).</span> 
+        Our customer support hours are &nbsp;<span class="text-primary"
+          >Monday to Friday, 9:00 AM - 6:00 PM (local time).</span
+        >
       </h5>
 
       <h5 class="text-2xl flex flex-col gap-3">
-        We take pride in providing exceptional customer support. Our commitment to you:
+        We take pride in providing exceptional customer support. Our commitment
+        to you:
         <ul class="text-xl">
-            <li>
-                <span class="text-secondary">-</span> Quick Response: We strive to respond to all inquiries within 24 hours during our business hours.
-            </li>
-            <li>
-                <span class="text-secondary">-</span> Resolution: Our goal is to resolve your questions or concerns efficiently and to your satisfaction.
-            </li>
-            <li>
-                <span class="text-secondary">-</span> Dedicated Team: Our knowledgeable and friendly support team is ready to assist you at every step.
-            </li>
+          <li>
+            <span class="text-secondary">-</span> Quick Response: We strive to
+            respond to all inquiries within 24 hours during our business hours.
+          </li>
+          <li>
+            <span class="text-secondary">-</span> Resolution: Our goal is to
+            resolve your questions or concerns efficiently and to your
+            satisfaction.
+          </li>
+          <li>
+            <span class="text-secondary">-</span> Dedicated Team: Our
+            knowledgeable and friendly support team is ready to assist you at
+            every step.
+          </li>
         </ul>
       </h5>
 
       <h5 class="text-xl">
-        We're dedicated to making your experience with Shenron's Tiny Trinkets exceptional. Your satisfaction is our top priority!
+        We're dedicated to making your experience with Shenron's Tiny Trinkets
+        exceptional. Your satisfaction is our top priority!
       </h5>
-      <img src="https://i.postimg.cc/SxqFNM7W/teaam-min.png" alt="team" class="absolute object-cover teamImg">
+      <img
+        src="https://i.postimg.cc/SxqFNM7W/teaam-min.png"
+        alt="team"
+        class="absolute object-cover teamImg"
+      />
     </section>
   </main>
 </template>
@@ -271,8 +289,8 @@ section {
   font-family: "Bebas Neue", sans-serif !important;
 }
 
-.teamImg{
-    left: 50%;
-    transform: translateX(-50%);
+.teamImg {
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>

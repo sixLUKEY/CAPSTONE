@@ -1,5 +1,5 @@
 <template>
-  <section class="flex px-20 py-5 gap-12">
+  <section class="flex px-20 py-5 gap-12" id="goku">
     <div class="flex-2">
       <img src="https://i.postimg.cc/D0PTLyNr/goku-min.png" alt="goku" />
     </div>

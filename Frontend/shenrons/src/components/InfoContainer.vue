@@ -12,7 +12,7 @@
                 Our customers love us! Don't just take our word for it – read what they have to say about 'Shenron's Tiny Trinkets.' These reviews are a testament to our commitment to quality and the Dragon Ball Z community.
             </p>
 
-            <p class="py-2 px-4 bg-white rounded-sm w-fit text-black text-sm">
+            <p class="py-2 px-4 bg-white rounded-sm w-fit text-black text-sm tip">
                 Want to know More?
                 <br>
                 CHeck out our <router-link to="/" class="text-red-500">FAQ's</router-link>
@@ -93,5 +93,23 @@
         grid-row: 2 / -2;
         filter: drop-shadow(-8px 8px 2px #000);
     }
+
+    .card1 {
+        transition: 0.2s;
+    }
+
+    .card1:hover {
+        scale: 1.05;
+    }
+
+    .tip{
+        transition: 0.2s;
+    }
+
+    .tip:hover{
+        scale: 1.1;
+    }
+
+    
 
 </style>

@@ -25,7 +25,37 @@ const routes = [
   {
     path: '/characters',
     name: 'characters',
-    component: () => import('../views/CharactersView.vue')
+    component: () => import('../views/CharactersView.vue'),
+    children: [
+      {
+        path: 'frieza',
+        component: () => import('../components/Frieza.vue')
+      },
+      {
+        path: 'goku',
+        component: () => import('../components/Goku.vue')
+      },
+      {
+        path: 'jiren',
+        component: () => import('../components/Jiren.vue')
+      },
+      {
+        path: 'vegeta',
+        component: () => import('../components/Vegeta.vue')
+      },
+      {
+        path: 'zamasu',
+        component: () => import('../components/Zamasu.vue')
+      },
+      {
+        path: 'cell',
+        component: () => import('../components/Cell.vue')
+      },
+      {
+        path: 'buu',
+        component: () => import('../components/Buu.vue')
+      }
+    ]
   },
   {
     path: '/contact',
