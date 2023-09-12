@@ -66,6 +66,31 @@ const routes = [
     path: '/test',
     name: 'test',
     component: () => import('../views/Test.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../views/AdminView.vue'),
+    children: [
+      {
+        path: 'users',
+        component: () => import('../views/AdminUsersView.vue')
+      },
+      {
+        path: 'items',
+        component: () => import('../views/AdminItemsView.vue')
+      }
+    ]
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../views/CartView.vue')
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('../views/ProfileView.vue')
   }
 ]
 

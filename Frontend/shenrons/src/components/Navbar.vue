@@ -104,7 +104,7 @@
           >
         </li>
         <li>
-          <router-link to="/" class="flex gap-3"
+          <router-link to="/profile" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -120,7 +120,7 @@
           >
         </li>
         <li>
-          <router-link to="/" class="flex gap-3"
+          <router-link to="/cart" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -200,7 +200,7 @@
           >
         </li>
         <li>
-          <router-link to="/" class="flex gap-3">
+          <router-link to="/admin" class="flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -297,6 +297,7 @@ nav ul li a.router-link-exact-active::after {
 .menuList li {
   transition: 0.2s;
 }
+
 .menuList li:hover {
   color: var(--primary-color);
   padding: 0 0 0 5px;
