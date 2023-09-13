@@ -1,7 +1,7 @@
 import express from "express"
 
 //Import function from controller
-import { showProducts, showProductbyId, createProduct, updateProduct, deleteProduct } from "../controllers/Product.js"
+import { showProducts, showProductbyId, createProduct, updateProduct, deleteProduct } from "../controllers/product.js"
 import { showUsers, showUserById, createUser, updateUser, deleteUser } from "../controllers/user.js"
 import { userLogin } from "../models/userModel.js"
 import { showCart, createCart, updateCart, deleteCart, deleteFromCart } from "../controllers/cart.js"
