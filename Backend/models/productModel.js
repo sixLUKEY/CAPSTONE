@@ -69,6 +69,7 @@ export const updateProductById = (data, id, result) => {
   );
 };
 
+//Delete Product
 export const deleteProductById = (id, result) => {
   db.query("DELETE FROM products WHERE prodID = ?", [id], (err, results) => {
     if (err) {

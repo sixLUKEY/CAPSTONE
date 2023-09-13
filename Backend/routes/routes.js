@@ -4,6 +4,7 @@ import express from "express"
 import { showProducts, showProductbyId, createProduct, updateProduct, deleteProduct } from "../controllers/Product.js"
 import { showUsers, showUserById, createUser, updateUser, deleteUser } from "../controllers/user.js"
 import { userLogin } from "../models/userModel.js"
+import { showCart, createCart, updateCart, deleteCart, deleteFromCart } from "../controllers/cart.js"
 
 // init express router
 const router = express.Router()
@@ -30,7 +31,7 @@ router.get( '/users', showUsers )
 router.get( '/users/:id', showUserById )
 
 //Create User
-router.post( '/users', createUser )
+router.post( '/register', createUser )
 
 //Update User
 router.put( '/users/:id', updateUser )
@@ -40,5 +41,20 @@ router.delete( '/users/:id', deleteUser )
 
 //Login
 router.post( '/login', userLogin )
+
+//Get Cart
+router.get( '/users/:id/cart', showCart )
+
+//Create Cart
+router.post( '/users/:id/cart', createCart )
+
+//Delete Cart
+router.delete( '/users/:id/cart', deleteCart )
+
+//Delete from Cart
+router.delete( '/users/:id/cart/:id', deleteFromCart )
+
+//Update Cart
+router.put( '/users/:id/cart/:id', updateCart )
 
 export default router

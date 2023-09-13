@@ -6,7 +6,6 @@ config()
 import { errorHandling } from './middleware/errorHandling.js'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import session from 'express-session'
 //From routes folder
 import Router from './routes/routes.js'
 import cookieParser from 'cookie-parser'
@@ -29,11 +28,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors())
 
-// app.use( session({
-//     secret: process.env.session_secret,
-//     resave: true,
-//     saveUninitialized: true
-// }))
+
 
 app.use(express.static('./static'))
 
