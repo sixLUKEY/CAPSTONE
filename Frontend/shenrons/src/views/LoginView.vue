@@ -32,11 +32,10 @@
                     }
 
                     const response = await this.$store.dispatch('login', payload)
-                    console.log( response )
 
                     if ( response.success === true && response.token && response.result ){
                         alert("logged in")
-                        this.$router.push('/')
+                        this.$router.push('/home')
                     } else {
                         alert('Error occurred')
                     }
