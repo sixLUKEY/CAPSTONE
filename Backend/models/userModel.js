@@ -87,7 +87,7 @@ export const deletUserById = (id, result) => {
 export const userLogin = (req, res) => {
   const { userEmail, userPass } = req.body;
 
-  const query = `SELECT userID, firstName, lastName, userAge, gender, userRole, userEmail, userPass, userProfile FROM users WHERE userEmail = '${userEmail}`;
+  const query = `SELECT userID, firstName, lastName, userAge, gender, userRole, userEmail, userPass, userProfile FROM users WHERE userEmail = '${userEmail}'`;
 
   db.query(query, async (err, result) => {
     if (err) throw err;
