@@ -9,7 +9,8 @@
         class="bg-primary rounded-full p-3 flex items-center justify-between gap-3"
       >
         <input
-          type="text"
+          type="search"
+          v-model="searchItem"
           placeholder="Search Products..."
           class="bg-transparent text-2xl"
         />
@@ -35,11 +36,15 @@
       </div>
     </div>
 
-    <div class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-24 gap-5">
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
+    <div class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-24 gap-5" v-if="products">
+      <ProductItem 
+      v-for="product of products"
+      :key="product.prodID"
+      :product="product"
+      />
+    </div>
+    <div v-else>
+      <Loader/>
     </div>
   </main>
 </template>
@@ -47,12 +52,60 @@
 <script>
 import ProductItem from "@/components/ProductItem.vue";
 import ItemView from "@/components/ItemView.vue";
+import Loader from "@/components/Loader.vue";
 
 export default {
+
+  data(){
+    return {
+      selectedFilter: 'All',
+      selectedSort: '',
+      products: [],
+      searchItem: ''
+    }
+  },
   components: {
     ProductItem,
-    ItemView
+    ItemView,
+    Loader
   },
+  computed: {
+    products(){
+      return this.$store.state.products
+    },
+    sortedProducts(){
+      let sorted = this.products
+
+      if ( this.selectedFilter && this.selectedFilter !== 'all'){
+        sorted = sorted.filter(
+          ( product ) => product.prodCharacter === this.selectedFilter
+        )
+      }
+
+      if ( this.selectedSort === 'alphabetical'){
+        sorted.sort(( a, b ) => a.prodName.localeCompare(b.prodName))
+      } else if ( this.selectedSort === 'toHigh'){
+        sorted.sort(( a, b ) => b.price - a.price)
+      } else if ( this.selectedSort === 'toLow'){
+        sorted.sort(( a, b ) => a.price - b.price)
+      }
+
+      return sorted
+    },
+    filteredProducts(){
+      return this.sortedProducts.filter(( product ) => {
+        product.prodName.toLowerCase().includes(this.searchItem.toLowerCase)
+      })
+    }
+  },
+  mounted(){
+    this.$store.dispatch('fetchProducts')
+  },
+  methods: {
+    selectFilter( filter ){
+      this.selectedFilter = filter
+    }
+  }
 };
 </script>
 

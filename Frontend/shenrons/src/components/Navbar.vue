@@ -48,7 +48,7 @@
   </nav>
 
   <aside
-    class="fixed top-0 right-0 z-[999] w-[400px] h-[100vh] pt-12 px-5 bg-black flex flex-col"
+    class="fixed top-0 right-0 z-[999] w-[400px] h-[100vh] pt-12 px-5 bg-black flex flex-col "
     id="sidebar"
   >
     <div class="profileBox flex justify-between items-end gap-5">

@@ -3,7 +3,10 @@ import axios from 'axios'
 import cookies from 'js-cookie'
 import router from '@/router'
 
+
 const prodUrl = 'https://shenron-api.onrender.com/products/'
+const usersUrl = 'https://shenron-api.onrender.com/users/'
+const baseUrl = 'https://shenron-api.onrender.com/'
 
 export default createStore({
   state: {
@@ -129,6 +132,201 @@ export default createStore({
         }
       } catch ( error ){
         alert( error )
+      }
+    },
+    async fetchUsers( context ){
+      try{
+        let users = await (await fetch( usersUrl )).json()
+        console.log( users )
+        if ( users ){
+          context.commit( "setUsers", users )
+        } else {
+          context.commit(alert("There was an error fetching users"))
+        }
+      } catch ( error ){
+        alert( error )
+      }
+    },
+    async fetchUser( context, id ){
+      try{
+        let user = await ( await fetch( usersUrl + id )).json()
+        console.log( user )
+        if ( user ){
+          context.commit( "setUser", user )
+        } else {
+          context.commit( alert("User not found"))
+        }
+      } catch ( error ){
+        alert( error )
+      }
+    },
+    async addProduct( context, productData ){
+      try{
+        const response = ( await axios.post( prodUrl, productData )).data
+
+        if ( response ){
+          context.dispatch("fetchProducts")
+          alert( "successfully added ")
+          router.push({ name: 'admin' })
+        } else {
+          alert("Failed to add product")
+        }
+      } catch ( err ){
+        console.error( err )
+        return false
+      }
+    },
+    async updateProduct( {commit}, data ){
+      try{
+        const response = await axios.put( prodUrl + data.id, data )
+        if ( response.status === 200 ){
+          commit( 'updateProduct', data )
+          return true
+        } else {
+          return false
+        }
+      } catch ( err ){
+        console.error( err )
+        return false
+      }
+    },
+    async deleteProduct( {commit}, prodID ){
+      try {
+        await axios.delete( prodUrl + prodID )
+        commit( 'deleteProduct', prodID )
+        return true
+      } catch ( err ){
+        console.error( err )
+        return false
+      }
+    },
+    async fetchCart( context, id ){
+      const response = await axios.get( `${usersUrl}${id}/cart`)
+      context.commit( 'setCart', response.data )
+    },
+    async addToCart( {commit}, {userID, prodID} ){
+      try {
+        const response = await axios.post( `${usersUrl}${userID}/cart`,
+        {
+          userID,
+          prodID
+        })
+
+        if ( response.status === 200 ){
+          commit( 'addToCart', response.data )
+        } else {
+
+        }
+      } catch ( err ){
+        console.error( err )
+      }
+    },
+    async removeFromCart( {commit}, { userID, cartID } ){
+      try {
+        await axios.delete(`${usersUrl}${userID}/cart/${cartID}`)
+        commit('removeFromCart', cartID)
+      } catch ( err ){
+        console.error( err )
+      }
+    },
+    async updateUser( { commit }, data ){
+      try {
+        const response = await axios.put( usersUrl + data.id, data )
+        if ( response.status === 200 ){
+          commit('updateUser', data)
+          return true
+        } else {
+          return false
+        }
+      } catch ( err ){
+        console.error( err )
+        return false
+      }
+    },
+    async register( context, payload ){
+      try {
+        const response = await axios.post( `${baseUrl}register`, payload )
+        console.log( response.data )
+        const { message, error, token } = response.data
+        if ( message === 'An error occurred'){
+          context.commit('setError', message)
+          context.commit('setRegStatus', 'Not Registered')
+          return { success: false, error: message }
+        } else if ( token ){
+          context.commit('setToken', token)
+          context.commit('setRegStatus', 'Registered successfully')
+          return { success: true, token }
+        } else if ( err ){
+          console.error( err )
+        }
+      } catch ( err ){
+        context.commit('setError', err)
+        console.log( err )
+        context.commit('setRegStatus', 'Not registered')
+        throw err
+      }
+    },
+    async deleteUser( { commit }, userID ){
+      try {
+        await axios.delete( usersUrl + userID )
+
+        commit('deleteUser', userID)
+        return true
+      } catch ( err ){
+        console.error( err )
+        return false
+      }
+    },
+    async login( context, payload ){
+      try {
+        const response = await axios.post(`${baseUrl}login`, payload)
+        console.log( response.data.status )
+        const { error, message, token, result } = response.data
+
+        if ( message === 'Unregistered user or incorrect password'){
+          context.commit('setError', message)
+          context.commit('setLogStatus', 'Not logged in')
+          return { success: false, error: message }
+        } else if ( message && token && result ){
+          context.commit('setUser', result)
+          context.commit('setToken', token)
+          context.commit('setUserData', result)
+          context.commit('setLogStatus', 'Logged In')
+          cookies.set('userToken', token, { expires: 1 })
+          return { success: true, token, result }
+        } else if ( error ){
+          context.commit('setError', error  )
+          return { success: false, error: error }
+        } else {
+          context.commit('setError', 'Unknown error occured')
+          context.commit('setLogStatus', 'Not Logged In')
+          return { success: false, error: 'Unknown error' }
+        }
+      } catch ( err ){
+        console.log( err )
+      }
+    },
+    cookieCheck( context ){
+      const token = cookies.get('userToken')
+      if ( token ){
+        context.commit('setToken', token)
+      }
+    },
+    init( context ){
+      context.dispatch('coookieCheck')
+    },
+    async logout( context ){
+      context.commit('setToken', null)
+      context.commit('setUser', null)
+      context.commit('setUserData', null)
+      cookies.remove('userToken')
+    },
+    async clearCart( { commit }, { userID } ){
+      try {
+        await axios.delete(`${usersUrl}${userID}/cart`)
+        commit('clearCart', userID)
+      } catch ( err ){
+        console.error( err )
       }
     }
   }

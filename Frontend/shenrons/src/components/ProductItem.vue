@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col bg-white p-3 rounded-md gap-3">
     <div class="flex justify-between items-center font-bold">
-      <h4 class="text-secondary text-xl">#133</h4>
-      <h4 class="text-dark text-xl">Vegeta</h4>
-      <router-link to="/singleItem">
+      <h4 class="text-secondary text-xl">#{{ product.prodID }}</h4>
+      <h4 class="text-dark text-xl">{{ product.prodCharacter }}</h4>
+      <router-link :to="{ name: 'singleItem', params: { id: product.prodID }}">
         <svg
           width="17"
           height="17"
@@ -19,19 +19,19 @@
         </svg>
       </router-link>
     </div>
-    <router-link to="/singleItem">
+    <router-link :to="{ name: 'singleItem', params: { id: product.prodID }}">
       <img
-        src="../assets/png-transparent-dragon-ball-frieza-vegeta-captain-ginyu-piccolo-radar-fictional-characters-audio-equipment-action-toy-figures1.png"
-        alt="Scouter"
+        :src="product.url"
+        :alt="product.prodName"
         class="hover:scale-[1.01] transition hover:drop-shadow-xl"
       />
     </router-link>
     <div class="font-bold">
-      <h3 class="text-black text-2xl">Saiyan Scouter</h3>
-      <h4 class="text-[#6F6F6F] text-xl">Limited Edition Pink Reader</h4>
+      <h3 class="text-black text-2xl">{{ product.prodName }}</h3>
+      <h4 class="text-[#6F6F6F] text-xl">{{ product.model }}</h4>
     </div>
     <div class="flex justify-between">
-      <h3 class="text-black text-3xl self-center font-bold">R540</h3>
+      <h3 class="text-black text-3xl self-center font-bold">R{{ product.price }}</h3>
       <button class="p-3 rounded-full bg-primary text-4xl font-bold add h-fit">
         <svg
           width="20"
@@ -83,7 +83,10 @@ export default {
       const heartFill = document.querySelector('.heart')
       heartFill.classList.toggle('active')
     }
-  }
+  },
+  props: [
+    'product'
+  ]
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-12">
+  <div class="flex flex-col gap-12" v-if="product">
     <div class="flex justify-between">
       <router-link to="/items" class="hover:-translate-x-2 transition">
         <svg
@@ -32,22 +32,20 @@
     <div class="flex sm:gap-10 lg:gap-24">
       <div class="flex-[2] flex items-center">
         <img
-          src="https://i.postimg.cc/3ryMPJL1/pngwing-com-2023-08-28-T203106-1.png"
-          alt="dragonball"
+          :src="product.url"
+          :alt="product.prodName"
         />
       </div>
       <div class="flex-[3] flex flex-col justify-between">
         <div class="flex justify-between items-end">
-          <h3 class="sm:text-4xl md:text-5xl lg:text-6xl">Dragon Ball</h3>
-          <h5 class="lg:text-3xl sm:text-2xl text-[#B5B5B5]">All</h5>
+          <h3 class="sm:text-4xl md:text-5xl lg:text-6xl">{{ product.prodName }}</h3>
+          <h5 class="lg:text-3xl sm:text-2xl text-[#B5B5B5]">{{ product.prodCharacter }}</h5>
         </div>
         <h5 class="lg:text-4xl md:text-3xl sm:text-2xl text-primary text-end">
-          4 Star - Original
+          {{ product.model }}
         </h5>
         <p class="md:text-xl sm:txt-lg">
-          The 4-Star Dragon Ball: A classic symbol of adventure and friendship
-          in Dragon Ball Z. This replica faithfully captures its iconic
-          four-star design. Perfect for collectors and character customization.
+          {{ product.descr }}
         </p>
         <div class="flex justify-between">
           <button
@@ -76,15 +74,36 @@
                 /></svg
             ></span>
           </button>
-          <h3 class="lg:text-5xl md:text-4xl sm:text-3xl">R 9500</h3>
+          <h3 class="lg:text-5xl md:text-4xl sm:text-3xl">R {{ product.price }}</h3>
         </div>
       </div>
     </div>
   </div>
+  <div v-else>
+    <loader/>
+  </div>
 </template>
 
 <script>
-export default {};
+
+import Loader from './Loader.vue';
+
+export default {
+  components: {
+    Loader
+  },
+  computed: {
+    product(){
+      return this.$store.state.product
+    },
+    id(){
+      return this.$route.params.id
+    }
+  },
+  mounted(){
+    this.$store.dispatch('fetchProduct', this.id)
+  }
+};
 </script>
 
 <style scoped>
