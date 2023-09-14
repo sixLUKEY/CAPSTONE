@@ -124,7 +124,6 @@ export default createStore({
     async fetchProduct( context, id ){
       try{
         let product = await ( await fetch( prodUrl + id )).json()
-        console.log( product )
         if ( product ){
           context.commit( "setProduct", product )
         } else {
@@ -137,7 +136,6 @@ export default createStore({
     async fetchUsers( context ){
       try{
         let users = await (await fetch( usersUrl )).json()
-        console.log( users )
         if ( users ){
           context.commit( "setUsers", users )
         } else {
@@ -150,7 +148,6 @@ export default createStore({
     async fetchUser( context, id ){
       try{
         let user = await ( await fetch( usersUrl + id )).json()
-        console.log( user )
         if ( user ){
           context.commit( "setUser", user )
         } else {

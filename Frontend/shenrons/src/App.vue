@@ -13,6 +13,10 @@
     components: {
       Navbar,
       Footer
+    },
+    mounted(){
+      this.$store.dispatch('fetchProducts')
+      this.$store.dispatch('fetchUsers')
     }
   }
 

@@ -2,8 +2,26 @@
   <main>
     <div class="flex justify-between">
       <div class="flex flex-col">
-        <p class="text-xl">Filter By:</p>
-        <p class="text-xl">Sort By:</p>
+        <div class="text-xl">
+          Sort By:
+          <select
+            name="sort"
+            id="sortItems"
+            v-model="selectedSort"
+            class="text-black"
+          >
+            <option value="sort">Sort</option>
+            <option value="alphabetical">Alphabetical</option>
+            <option value="toLow">Price: Hi to Low</option>
+            <option value="toHigh">Price: Low to Hi</option>
+          </select>
+        </div>
+        <div class="text-xl flex">
+          Filter By:
+          <button type="button" @click="selectFilter('all')">All</button>
+          <button type="button" @click="selectFilter('Vegeta')">Vegeta</button>
+          <button type="button" @click="selectFilter('Goku')">Goku</button>
+        </div>
       </div>
       <div
         class="bg-primary rounded-full p-3 flex items-center justify-between gap-3"
@@ -36,15 +54,18 @@
       </div>
     </div>
 
-    <div class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-24 gap-5" v-if="products">
-      <ProductItem 
-      v-for="product of products"
-      :key="product.prodID"
-      :product="product"
+    <div
+      class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-24 gap-5"
+      v-if="filteredProducts.length > 0"
+    >
+      <ProductItem
+        v-for="product of filteredProducts"
+        :key="product.prodID"
+        :product="product"
       />
     </div>
     <div v-else>
-      <Loader/>
+      <Loader />
     </div>
   </main>
 </template>
@@ -55,57 +76,57 @@ import ItemView from "@/components/ItemView.vue";
 import Loader from "@/components/Loader.vue";
 
 export default {
-
-  data(){
+  data() {
     return {
-      selectedFilter: 'All',
-      selectedSort: '',
+      selectedFilter: "all",
+      selectedSort: "sort",
       products: [],
-      searchItem: ''
-    }
+      searchItem: "",
+    };
   },
   components: {
     ProductItem,
     ItemView,
-    Loader
+    Loader,
   },
   computed: {
-    products(){
-      return this.$store.state.products
+    products() {
+      return this.$store.state.products;
     },
-    sortedProducts(){
-      let sorted = this.products
+    sortedProducts() {
+      let sorted = this.products;
 
-      if ( this.selectedFilter && this.selectedFilter !== 'all'){
+      if (this.selectedFilter && this.selectedFilter !== "all") {
         sorted = sorted.filter(
-          ( product ) => product.prodCharacter === this.selectedFilter
-        )
+          (product) => product.prodCharacter === this.selectedFilter
+        );
       }
 
-      if ( this.selectedSort === 'alphabetical'){
-        sorted.sort(( a, b ) => a.prodName.localeCompare(b.prodName))
-      } else if ( this.selectedSort === 'toHigh'){
-        sorted.sort(( a, b ) => b.price - a.price)
-      } else if ( this.selectedSort === 'toLow'){
-        sorted.sort(( a, b ) => a.price - b.price)
+      if (this.selectedSort === "alphabetical") {
+        sorted.sort((a, b) => a.prodName.localeCompare(b.prodName));
+      } else if (this.selectedSort === "toHigh") {
+        sorted.sort((a, b) => b.price - a.price);
+      } else if (this.selectedSort === "toLow") {
+        sorted.sort((a, b) => a.price - b.price);
       }
 
-      return sorted
+      return sorted;
     },
-    filteredProducts(){
-      return this.sortedProducts.filter(( product ) => {
-        product.prodName.toLowerCase().includes(this.searchItem.toLowerCase)
-      })
-    }
+    filteredProducts() {
+      return this.sortedProducts.filter((product) => {
+        product.prodName.toLowerCase().includes(this.searchItem.toLowerCase);
+      });
+    },
   },
-  mounted(){
-    this.$store.dispatch('fetchProducts')
+  mounted() {
+    this.$store.dispatch("fetchProducts");
   },
   methods: {
-    selectFilter( filter ){
-      this.selectedFilter = filter
-    }
-  }
+    selectFilter(filter) {
+      this.selectedFilter = filter;
+      console.log( this.selectedFilter )
+    },
+  },
 };
 </script>
 
@@ -122,5 +143,4 @@ input {
 input:focus {
   outline: none;
 }
-
 </style>
