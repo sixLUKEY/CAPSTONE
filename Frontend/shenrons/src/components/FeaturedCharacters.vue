@@ -13,11 +13,11 @@
         an iconic villain in the series.
       </p>
 
-      <div class="flex sm:gap-5">
+      <div class="flex sm:gap-5 altImg">
         <img src="../assets/cell1.png" alt="cell1" />
         <img src="../assets/cell2.png" alt="cell2" />
       </div>
-      <button class="text-2xl flex items-center gap-2 w-fit">
+      <router-link to="/characters" class="text-2xl flex items-center gap-2 w-fit">
         Visit Page
         <span>
           <svg
@@ -33,7 +33,7 @@
             />
           </svg>
         </span>
-      </button>
+      </router-link>
     </div>
 
     <div class="flex flex-col gap-5 frieza my-36 items-end">
@@ -47,7 +47,7 @@
         make him a memorable villain in the franchise.
       </p>
 
-      <div class="flex sm:gap-5">
+      <div class="flex sm:gap-5 altImg">
         <img
           src="https://i.postimg.cc/PxJMtbzW/frieza-otso02qx3h82fpnw-1-min.png"
           alt="cell1"
@@ -57,7 +57,7 @@
           alt="cell2"
         />
       </div>
-      <button class="text-2xl flex items-center gap-2 w-fit">
+      <router-link to="/characters" class="text-2xl flex items-center gap-2 w-fit">
         Visit Page
         <span>
           <svg
@@ -73,7 +73,7 @@
             />
           </svg>
         </span>
-      </button>
+      </router-link>
     </div>
 
     <div class="flex flex-col gap-5 buu my-36">
@@ -89,11 +89,11 @@
         the series, embodying unbridled chaos and power.
       </p>
 
-      <div class="flex sm:gap-5">
+      <div class="flex sm:gap-5 altImg">
         <img src="https://i.postimg.cc/sXGnf55Z/buu1-min.png" alt="cell1" />
         <img src="https://i.postimg.cc/Jz7PDfb8/bu3-min.png" alt="cell2" />
       </div>
-      <button class="text-2xl flex items-center gap-2 w-fit">
+      <router-link to="/characters" class="text-2xl flex items-center gap-2 w-fit">
         Visit Page
         <span>
           <svg
@@ -109,7 +109,7 @@
             />
           </svg>
         </span>
-      </button>
+      </router-link>
     </div>
   </section>
 </template>
@@ -156,7 +156,7 @@ span {
   transition: 0.2s;
 }
 
-button:hover span {
+a:hover span {
   transform: translateX(5px);
 }
 
@@ -176,5 +176,15 @@ button:hover span {
   background-image: url("https://i.postimg.cc/jSRjYXyC/buu2-min.png");
   background-size: cover;
   background-position: center;
+}
+
+.altImg img{
+  transition: 0.2s;
+  opacity: 0.3;
+}
+
+.altImg img:hover{
+  scale: 1.02;
+  opacity: 1;
 }
 </style>

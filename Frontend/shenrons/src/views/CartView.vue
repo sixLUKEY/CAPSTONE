@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="min-h-[60vh]">
         Cart
     </main>
 </template>

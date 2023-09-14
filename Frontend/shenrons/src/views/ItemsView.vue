@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="min-h-[60vh]">
     <div class="flex justify-between">
       <div class="flex flex-col">
         <div class="text-xl">

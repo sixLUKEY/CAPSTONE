@@ -1,7 +1,7 @@
 <template>
-    <main class="flex">
+    <main class="flex min-h-[60vh]">
         <div class="flex flex-1 gap-5">
-            <img src="https://i.postimg.cc/4d8Vq5nP/pngwing-com-2023-09-12-T134632-142.png" alt="user">
+            <img src="https://i.postimg.cc/4d8Vq5nP/pngwing-com-2023-09-12-T134632-142.png" alt="user" class=" object-contain">
             <h2 class="text-5xl">Luke Evertson</h2>
         </div>
         <div>

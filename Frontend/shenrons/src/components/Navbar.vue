@@ -45,7 +45,10 @@
           fill="white"
         />
       </svg>
-      <router-link to="/" v-else>Log In</router-link>
+      <div v-else class="flex gap-2">
+        <router-link to="/" class="transition hover:text-primary">Log In</router-link> / 
+        <router-link to="/register" class="transition hover:text-secondary">Register</router-link>
+      </div>
     </div>
   </nav>
 
@@ -90,7 +93,7 @@
     <div class="h-[1px] w-full bg-white/20 my-5"></div>
     <div class="flex-1">
       <ul class="flex flex-col text-xl h-[90%] gap-5 menuList">
-        <li>
+        <li @click="sideBar">
           <router-link to="/home" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +109,7 @@
             ><span>Home</span></router-link
           >
         </li>
-        <li>
+        <li @click="sideBar">
           <router-link to="/profile" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +125,7 @@
             ><span>View Profile</span></router-link
           >
         </li>
-        <li>
+        <li @click="sideBar">
           <router-link to="/cart" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +141,7 @@
             ><span>Cart</span></router-link
           >
         </li>
-        <li>
+        <li @click="sideBar">
           <router-link to="/items" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +157,7 @@
             ><span>Items</span></router-link
           >
         </li>
-        <li>
+        <li @click="sideBar">
           <router-link to="/characters" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +173,7 @@
             ><span>Characters</span></router-link
           >
         </li>
-        <li>
+        <li @click="sideBar">
           <router-link to="/about" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +189,7 @@
             ><span>About Us</span></router-link
           >
         </li>
-        <li>
+        <li @click="sideBar">
           <router-link to="/contact" class="flex gap-3"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +205,7 @@
             ><span>Contact Us</span></router-link
           >
         </li>
-        <li>
+        <li @click="sideBar">
           <router-link to="/admin" class="flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -281,6 +284,23 @@ nav a.router-link-exact-active {
 nav ul li a {
   position: relative;
   transition: 0.2s;
+  overflow: hidden;
+}
+
+nav ul li a::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(65, 65, 65);
+  transition: 0.4s;
+  border-radius: 999px;
+}
+
+nav ul li:hover a::before{
+  width: 50%;
 }
 
 nav ul li a.router-link-exact-active::after {

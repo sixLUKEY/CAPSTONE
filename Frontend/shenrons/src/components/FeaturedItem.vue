@@ -100,6 +100,11 @@ img{
 .stars img{
     height: 60px;
     filter: drop-shadow(-5px 5px 5px #00000087);
+    transition: 0.2s;
+}
+
+.stars img:hover {
+  scale: 1.1;
 }
 
 .featured{

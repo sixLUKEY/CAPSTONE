@@ -164,7 +164,7 @@ export default createStore({
         if ( response ){
           context.dispatch("fetchProducts")
           alert( "successfully added ")
-          router.push({ name: 'admin' })
+          router.push('/admin/items')
         } else {
           alert("Failed to add product")
         }

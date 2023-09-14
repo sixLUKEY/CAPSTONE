@@ -76,6 +76,10 @@ a:hover > img{
     transition: 0.2s;
 }
 
+.floatNav a:hover{
+    scale: 1.2;
+}
+
 .floatNav a.router-link-exact-active{
     background-color: var(--primary-color);
     position: relative;

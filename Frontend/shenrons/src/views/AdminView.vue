@@ -8,7 +8,7 @@
                 Users
             </router-link>
         </div>
-        <router-view class="h-[50vh] overflow-scroll"/>
+        <router-view class="h-[50vh] overflow-scroll routeView"/>
     </main>
 </template>
 
@@ -24,16 +24,6 @@
         font-family: 'Bebas Neue', sans-serif !important;
     }
 
-    /* .router::after{
-        content: '';
-        position: absolute;
-        bottom: -10%;
-        left: 0;
-        height: 1px;
-        width: 100%;
-        background-color: var(--secondary-color);
-    } */
-
     a{
         color: rgba(255, 255, 255, 0.236);
         transition: 0.2s;
@@ -41,6 +31,21 @@
 
     a.router-link-exact-active{
         color: var(--primary-color);
+    }
+
+    .routeView::-webkit-scrollbar{
+        display: block;
+        width: 10px;
+        height: 0px;
+    }
+
+    .routeView::-webkit-scrollbar-thumb{
+        background-color: #feb415;
+        border-radius: 999px;
+    }
+
+    .routeView::-webkit-scrollbar-thumb:hover{
+        background-color: #feb415e9;
     }
 
 </style>

@@ -15,7 +15,7 @@
             <p class="py-2 px-4 bg-white rounded-sm w-fit text-black text-sm tip">
                 Want to know More?
                 <br>
-                CHeck out our <router-link to="/" class="text-red-500">FAQ's</router-link>
+                CHeck out our <router-link to="/contact" class="text-red-500">FAQ's</router-link>
             </p>
         </div>
         <img src="https://i.postimg.cc/nc320GkD/pngwing-com-2023-08-30-T090953-2-min.png" alt="logo">

@@ -2,7 +2,8 @@
   <main>
     <div class="flex gap-10">
       <form
-        action="POST"
+      action="https://formspree.io/f/moqoldad"
+        method="POST"
         class="flex-1 md:flex-[3] flex flex-col gap-5 text-white"
       >
         <h2 class="text-6xl flex gap-5 items-center">

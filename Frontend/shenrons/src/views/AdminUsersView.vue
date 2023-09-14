@@ -2,7 +2,7 @@
     <div class="flex flex-col my-12">
         <table class="w-full text-center relative">
             <thead>
-                <tr class=" sm:text-xl sticky top-0 bg-black text-primary">
+                <tr class=" sm:text-xl sticky top-0 bg-dark text-primary">
                     <th class="py-3">ID</th>
                     <th>Firstname</th>
                     <th>Lastname</th>
@@ -12,18 +12,16 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody class="my-5">
-                <AdminUser/>
-                <AdminUser/>
-                <AdminUser/>
-                <AdminUser/>
-                <AdminUser/>
-                <AdminUser/>
-                <AdminUser/>
+            <tbody class="my-5" v-if="users">
+                <AdminUser
+                v-for="user of users"
+                :key="user.userID"
+                :user="user"
+                />
             </tbody>
-            <!-- <tbody class="w-full flex items-center justify-center">
-                <Loader class="my-24"/>
-            </tbody> -->
+            <tbody v-else>
+                <Loader/>
+            </tbody>
            
         </table>
     </div>
@@ -38,6 +36,14 @@
         components: {
             Loader,
             AdminUser
+        },
+        computed: {
+            users(){
+                return this.$store.state.users
+            }
+        },
+        mounted(){
+            this.$store.dispatch("fetchUsers")
         }
     }
 </script>

@@ -1,54 +1,56 @@
 <template>
+  <main class="min-h-[60vh]">
     <form @submit.prevent="userLogin">
-        <h2 class="text-5xl">Login</h2>
+      <h2 class="text-5xl">Login</h2>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" v-model="userEmail">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" v-model="userEmail" />
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" v-model="userPass">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" v-model="userPass" />
 
-        <button type="submit">Login</button>
+      <button type="submit">Login</button>
     </form>
+  </main>
 </template>
 
 <script>
-    export default {
-        data(){
-            return {
-                userEmail: '',
-                userPass: ''
-            }
-        },
-        beforeCreate(){
-            this.$store.dispatch('cookieCheck')
-        },
-        methods: {
-            async userLogin(){
-                try {
-                    const payload = {
-                        userEmail : this.userEmail,
-                        userPass: this.userPass
-                    }
+export default {
+  data() {
+    return {
+      userEmail: "",
+      userPass: "",
+    };
+  },
+  beforeCreate() {
+    this.$store.dispatch("cookieCheck");
+  },
+  methods: {
+    async userLogin() {
+      try {
+        const payload = {
+          userEmail: this.userEmail,
+          userPass: this.userPass,
+        };
 
-                    const response = await this.$store.dispatch('login', payload)
+        const response = await this.$store.dispatch("login", payload);
 
-                    if ( response.success === true && response.token && response.result ){
-                        alert("logged in")
-                        this.$router.push('/home')
-                    } else {
-                        alert('Error occurred')
-                    }
-                } catch ( err ){
-                    console.error( err )
-                }
-            }
+        if (response.success === true && response.token && response.result) {
+          alert("logged in");
+          this.$router.push("/home");
+        } else {
+          alert("Error occurred");
         }
-    }
+      } catch (err) {
+        console.error(err);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
-    input{
-        color: black;
-    }
+input {
+  color: black;
+}
 </style>
