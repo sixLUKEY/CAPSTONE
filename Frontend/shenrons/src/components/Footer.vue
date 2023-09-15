@@ -107,6 +107,13 @@ export default {};
 </script>
 
 <style scoped>
+
+@media screen and (max-width:300px) {
+  footer{
+    padding: 5px 5px;
+  }
+}
+
 footer {
   font-family: "Bebas Neue", sans-serif !important;
 }

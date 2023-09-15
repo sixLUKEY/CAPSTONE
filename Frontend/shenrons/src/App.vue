@@ -2,17 +2,23 @@
   <Navbar/>
   <router-view/>
   <Footer/>
+  <!-- <SuccessPop/>
+  <ErrorPop/> -->
 </template>
 
 <script>
 
   import Navbar from './components/Navbar.vue';
   import Footer from './components/Footer.vue';
+  import SuccessPop from './components/SuccessPop.vue';
+  import ErrorPop from './components/ErrorPop.vue'
 
   export default {
     components: {
       Navbar,
-      Footer
+      Footer,
+      SuccessPop,
+      ErrorPop
     },
     mounted(){
       this.$store.dispatch('fetchProducts')
@@ -55,7 +61,11 @@ p{
   font-family: 'Bebas Neue', sans-serif !important;
 }
 
-
+@media screen and (max-width:300px) {
+  main{
+    margin: 5px;
+  }
+}
 
 
 @media screen and (min-width: 640px){

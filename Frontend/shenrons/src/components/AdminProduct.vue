@@ -11,7 +11,7 @@
     <td>{{ product.price }}</td>
     <td class="gap-5 items-center">
       <!-- <router-link :to="{name: 'admin edit', params:{id:product.prodID}}" class="text-green-400">Edit</router-link> / <button class="text-red-400" @click="deleteProduct( product.prodID )" >Delete</button> -->
-      <button class="hover:text-green-500 transition">Edit</button> / <button @click="deleteProduct( product.prodID )" class="hover:text-secondary transition">Delete</button>
+      <router-link :to="{ name: 'admin edit item', params: { id: product.prodID }}" class="hover:text-green-500 transition">Edit</router-link> / <button @click="deleteProduct( product.prodID )" class="hover:text-secondary transition">Delete</button>
     </td>
   </tr>
 </template>

@@ -82,11 +82,33 @@ export default {
     active(){
       const heartFill = document.querySelector('.heart')
       heartFill.classList.toggle('active')
+    },
+    addToCart( id ){
+      if ( this.userData && this.userData.userID ){
+        this.$store.dispatch('addToCart', {
+          userID: this.userData.userID,
+          id
+        })
+        alert('added successfully')
+      } else {
+        alert('Error')
+      }
     }
   },
   props: [
     'product'
-  ]
+  ],
+  mounted(){
+    this.$store.dispatch('fetchProduct', this.id)
+  },
+  computed: {
+    product(){
+      return this.$store.state.product
+    },
+    id(){
+      return this.$route.params.id
+    }
+  }
 };
 </script>
 

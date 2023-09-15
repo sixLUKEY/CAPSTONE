@@ -97,6 +97,12 @@ img{
     max-width: 100%;
 }
 
+@media screen and (max-width:301px) {
+  .stars img{
+    height: 30px !important;
+  }
+}
+
 .stars img{
     height: 60px;
     filter: drop-shadow(-5px 5px 5px #00000087);

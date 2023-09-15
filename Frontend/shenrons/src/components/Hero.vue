@@ -1,6 +1,6 @@
 <template>
-    <header class="flex">
-        <div class=" flex flex-col flex-1 md:gap-10 sm:gap-5">
+    <header class="flex flex-col sm:flex-row gap-5 sm:gap-0">
+        <div class=" flex flex-col flex-1 md:gap-10 sm:gap-5 order-2 sm:order-1 mt-52 sm:mt-0">
             <h1 class="lg:text-7xl text-primary md:text-6xl sm:text-5xl">
                 Shenron's Tiny Trinkets
             </h1>
@@ -16,7 +16,7 @@
                 </router-link>
             </div>
         </div>
-        <Shenron/>
+        <Shenron class="mt-10 sm:mt-0 sm:order-2 "/>
     </header>
 </template>
 
@@ -32,6 +32,12 @@
 </script>
 
 <style scoped>
+
+    @media screen and (max-width: 300px) {
+        .explore::after{
+            content: '' !important;
+        }
+    }
     .explore::after{
         content: url('https://i.postimg.cc/gkZkDppq/pngwing-com-2023-08-26-T184528-1.png');
         position: absolute;

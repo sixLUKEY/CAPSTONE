@@ -13,7 +13,7 @@
         an iconic villain in the series.
       </p>
 
-      <div class="flex sm:gap-5 altImg">
+      <div class="sm:gap-5 altImg hidden sm:flex" >
         <img src="../assets/cell1.png" alt="cell1" />
         <img src="../assets/cell2.png" alt="cell2" />
       </div>
@@ -47,7 +47,7 @@
         make him a memorable villain in the franchise.
       </p>
 
-      <div class="flex sm:gap-5 altImg">
+      <div class=" sm:gap-5 altImg hidden sm:flex">
         <img
           src="https://i.postimg.cc/PxJMtbzW/frieza-otso02qx3h82fpnw-1-min.png"
           alt="cell1"
@@ -89,7 +89,7 @@
         the series, embodying unbridled chaos and power.
       </p>
 
-      <div class="flex sm:gap-5 altImg">
+      <div class="sm:gap-5 altImg hidden sm:flex">
         <img src="https://i.postimg.cc/sXGnf55Z/buu1-min.png" alt="cell1" />
         <img src="https://i.postimg.cc/Jz7PDfb8/bu3-min.png" alt="cell2" />
       </div>

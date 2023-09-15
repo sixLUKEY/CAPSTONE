@@ -1,7 +1,7 @@
 <template>
-     <main class="min-h-[60vh] flex flex-col gap-5">
+     <main class="min-h-[60vh] flex flex-col gap-5" v-if="product">
 
-        <h2>{{ product.prodName }} | <span class="text-secondary">#{{ product.prodID }}</span></h2>
+        <h2 class="text-5xl">{{ product.prodName }} | <span class="text-secondary">#{{ product.prodID }}</span></h2>
 
     <div class="flex flex-col">
       <label for="name">Product Name</label>
@@ -85,9 +85,15 @@
       Submit
     </button>
   </main>
+  <main class="min-h-[60vh] flex flex-col gap-5" v-else>
+    <Loader/>
+  </main>
 </template>
 
 <script>
+
+  import Loader from '@/components/Loader.vue'
+
     export default {
         computed: {
             product(){
@@ -125,7 +131,7 @@
                 this.$store.dispatch('updateProduct', data)
                 .then((success) => {
                     if ( success ){
-                        this.$router.push('/admin/products')
+                        this.$router.push('/admin/items')
                         alert('Updated successfully')
                     } else {
                         alert('something went wrong')
@@ -137,11 +143,14 @@
             }
         },
         props: [
-            'id'
+            "id"
         ],
         mounted(){
             this.$store.dispatch('fetchProduct', this.id),
             this.$store.dispatch('fetchProducts')
+        },
+        components: {
+          Loader
         }
     }
 </script>
@@ -149,6 +158,7 @@
 <style scoped>
     input {
   color: black;
+  padding: 0.125rem;
 }
 
 select {

@@ -19,7 +19,7 @@
             </p>
         </div>
         <img src="https://i.postimg.cc/nc320GkD/pngwing-com-2023-08-30-T090953-2-min.png" alt="logo">
-        <div class="right flex flex-col justify-between">
+        <div class="right  flex-col justify-between hidden sm:flex">
             <div class="card1 flex flex-col bg-white rounded-md text-black p-2 w-[70%] gap-2 self-end">
                 <div class="flex gap-2">
                     <img src="https://i.postimg.cc/yxHsdSrV/Ellipse-8-min.png" alt="User1" class="h-8">

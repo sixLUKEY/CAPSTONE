@@ -2,7 +2,7 @@
   <nav
     class="flex justify-between items-end lg:px-20 xl:px-80 py-5 md:px-5 sm:px-5 bg-dark sticky top-0 z-[998]"
   >
-    <div class="logo sm:w-[30%]">
+    <div class="logo sm:w-[30%] hidden sm:block">
       <router-link to="/home">
         <img
           src="https://i.postimg.cc/kg0b1yhV/Group-40.png"
@@ -11,7 +11,7 @@
       </router-link>
     </div>
     <ul
-      class="flex sm:text-lg sm:gap-5 md:text-xl md:gap-5 lg:text-2xl lg:gap-5 xl:text-2xl xl:gap-8"
+      class="flex gap-5 text-sm sm:text-lg sm:gap-5 md:text-xl md:gap-5 lg:text-2xl lg:gap-5 xl:text-2xl xl:gap-8"
     >
       <li>
         <router-link to="/home"> Home </router-link>
@@ -29,7 +29,7 @@
         <router-link to="/contact"> Contact </router-link>
       </li>
     </ul>
-    <div class="userControl flex items-center" >
+    <div class="userControl sm:flex items-center text-sm hidden" >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="25"
@@ -367,5 +367,11 @@ nav ul li a.router-link-exact-active::after {
 
 .shown {
   transform: translateX(0%) !important;
+}
+
+@media screen and (max-width:300px) {
+  nav{
+    padding: 5px 5px;
+  }
 }
 </style>
