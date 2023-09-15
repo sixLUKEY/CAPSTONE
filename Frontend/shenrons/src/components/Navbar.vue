@@ -205,7 +205,7 @@
             ><span>Contact Us</span></router-link
           >
         </li>
-        <li @click="sideBar">
+        <li @click="sideBar" v-show="userRole === 'admin'">
           <router-link to="/admin" class="flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"

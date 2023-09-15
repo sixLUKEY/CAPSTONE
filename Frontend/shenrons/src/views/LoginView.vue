@@ -1,15 +1,23 @@
 <template>
-  <main class="min-h-[60vh]">
-    <form @submit.prevent="userLogin">
-      <h2 class="text-5xl">Login</h2>
+  <main class="min-h-[60vh] flex justify-center">
+    <form @submit.prevent="userLogin" class="flex flex-col gap-5">
+      <h2 class="text-5xl mx-auto w-fit mb
+      
+      -12 relative z-20">Login</h2>
 
-      <label for="email">Email:</label>
-      <input type="email" name="email" id="email" v-model="userEmail" />
+      <div class="flex gap-5 justify-between">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" v-model="userEmail" />
+      </div>
 
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" v-model="userPass" />
+      <div class="flex gap-5 justify-between">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" v-model="userPass" />
+      </div>
 
-      <button type="submit">Login</button>
+      
+      <button type="submit" class="bg-primary text-2xl w-fit px-5 py-1 mx-auto my-5 rounded-sm hover:opacity-90 transition">Login</button>
+      <p class="text-center">Don't have an account? <span class="hover:text-secondary transition underline"><router-link to="/register">Register</router-link></span></p>
     </form>
   </main>
 </template>
@@ -52,5 +60,33 @@ export default {
 <style scoped>
 input {
   color: black;
+  padding: 0.125rem;
+  border-radius: 0.125rem;
+}
+
+label{
+  font-size: 1.5rem;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  bottom: -5%;
+  left: 0;
+  background-color: var(--primary-color);
+  border-radius: 999px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  bottom: -15%;
+  right: 0;
+  background-color: var(--secondary-color);
+  border-radius: 999px;
 }
 </style>

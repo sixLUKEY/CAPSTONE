@@ -15,6 +15,8 @@
           type="text"
           placeholder="FullName"
           required
+          oninvalid="this.setCustomValidity('Please Enter your name in full')"
+            oninput="this.setCustomValidity('')"
         />
         <input
           class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm"
@@ -22,6 +24,8 @@
           type="email"
           placeholder="Email"
           required
+          oninvalid="this.setCustomValidity('Please Enter a valid email address')"
+            oninput="this.setCustomValidity('')"
         />
         <textarea
           class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm"
@@ -31,6 +35,8 @@
           rows="10"
           placeholder="Leave a message.."
           required
+          oninvalid="this.setCustomValidity('A message for context will be much appreciated')"
+            oninput="this.setCustomValidity('')"
         ></textarea>
         <div class="flex items-center gap-5">
           <div class="flex-1 h-[2px] bg-[#7C35A9]"></div>

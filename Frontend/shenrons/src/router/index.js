@@ -106,6 +106,12 @@ const routes = [
     path: '/admin/addItem',
     name: 'admin add item',
     component: () => import('../views/AddItemView.vue')
+  },
+  {
+    path: '/admin/edit/:id',
+    name: 'admin edit item',
+    component: () => import('../views/EditItemView.vue'),
+    props: true
   }
 ]
 

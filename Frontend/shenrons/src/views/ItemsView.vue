@@ -56,10 +56,10 @@
 
     <div
       class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-24 gap-5"
-      v-if="filteredProducts.length > 0"
+      v-if="products"
     >
       <ProductItem
-        v-for="product of filteredProducts"
+        v-for="product of products"
         :key="product.prodID"
         :product="product"
       />

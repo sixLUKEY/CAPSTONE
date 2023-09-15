@@ -1,39 +1,54 @@
 <template>
   <main class="min-h-[60vh]">
-    <form @submit.prevent="register">
-      <h2 class="text-5xl">Register</h2>
+    <form @submit.prevent="register" class="flex flex-col gap-5">
+      <h2 class="text-5xl relative w-fit mx-auto mb-5">Register</h2>
 
-      <label for="firstName">First Name:</label>
-      <input type="text" name="firstName" id="firstName" v-model="firstName" />
+      <div class="w-full flex gap-5">
+        <div class="flex-1 flex flex-col gap-5">
+          <div class="flex flex-col">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" v-model="firstName" />
+          </div>
+    
+          <div class="flex flex-col">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" v-model="lastName" />
+          </div>
+    
+          <div class="flex flex-col">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" v-model="userAge" />
+          </div>
+    
+          <div class="flex flex-col">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" v-model="gender">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+          
+        </div>
+        
+        
+          <div class="flex-1 flex flex-col gap-5">
+            <div class="flex flex-col">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" v-model="userEmail" />
+            </div>
+            
+            <div class="flex flex-col">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" v-model="userPass" />  
+            </div>
+          </div>
+        
+      </div>
 
-      <label for="lastName">Last Name</label>
-      <input type="text" name="lastName" id="lastName" v-model="lastName" />
+      <button type="submit" class="text-2xl rounded-sm bg-primary py-1 px-5 w-fit hover:opacity-90 transition mx-auto my-5">Register</button>
 
-      <label for="age">Age</label>
-      <input type="number" name="age" id="age" v-model="userAge" />
+      <p class="text-center">Already have an account? <span class="hover:text-secondary transition underline"><router-link to="/">Log In</router-link></span></p>
 
-      <label for="gender">Gender</label>
-      <select name="gender" id="gender" v-model="gender">
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-      </select>
-
-      <label for="role">role</label>
-      <select name="role" id="role" v-model="userRole">
-        <option value="user">user</option>
-        <option value="admin">admin</option>
-      </select>
-
-      <label for="email">email</label>
-      <input type="email" name="email" id="email" v-model="userEmail" />
-
-      <label for="password">password</label>
-      <input type="password" name="password" id="password" v-model="userPass" />
-
-      <label for="profile">Profile Image</label>
-      <input type="url" name="profile" id="profile" v-model="userProfile" />
-
-      <button type="submit">Register</button>
     </form>
   </main>
 </template>
@@ -46,7 +61,6 @@ export default {
       lastName: "",
       userAge: "",
       gender: "",
-      userRole: "",
       userEmail: "",
       userPass: "",
       userProfile: "",
@@ -60,7 +74,6 @@ export default {
           lastName: this.lastName,
           userAge: this.userAge,
           gender: this.gender,
-          userRole: this.userRole,
           userEmail: this.userEmail,
           userPass: this.userPass,
           userProfile: this.userProfile,
@@ -71,7 +84,7 @@ export default {
         } else {
           alert("error");
         }
-        this.$router.push("/login");
+        this.$router.push("/");
       } catch (err) {
         console.error(err);
       }
@@ -81,7 +94,45 @@ export default {
 </script>
 
 <style scoped>
+
+label{
+  font-size: 1.25rem;
+}
+
 input {
   color: black;
+  padding: 0.125rem;
+  border-radius: 0.125rem;
+}
+
+select{
+  color: black;
+  border-radius: 0.125rem;
+}
+
+option{
+  font-weight: bold;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  bottom: -5%;
+  left: 0;
+  background-color: var(--primary-color);
+  border-radius: 999px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  bottom: -15%;
+  right: 0;
+  background-color: var(--secondary-color);
+  border-radius: 999px;
 }
 </style>
