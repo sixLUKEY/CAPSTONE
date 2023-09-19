@@ -2,8 +2,8 @@
   <Navbar/>
   <router-view/>
   <Footer/>
-  <!-- <SuccessPop/>
-  <ErrorPop/> -->
+  <SuccessPop/> 
+  <ErrorPop/>
 </template>
 
 <script>
@@ -61,35 +61,39 @@ p{
   font-family: 'Bebas Neue', sans-serif !important;
 }
 
-@media screen and (max-width:300px) {
+@media screen and (min-width:300px) {
   main{
-    margin: 5px;
+    margin: 12px;
   }
 }
 
 
 @media screen and (min-width: 640px){
   main{
-    margin: 5rem 1.25rem;
+    margin: 3rem 1.25rem;
   }
 }
 
 @media screen and (min-width: 768px){
   main{
-    margin: 5rem 1.25rem;
+    margin: 3rem 1.25rem;
   }
 }
 
 @media screen and (min-width: 1024px){
   main{
-    margin: 5rem 5rem;
+    margin: 3rem 5rem;
   }
 }
 
 @media screen and (min-width: 1280px){
   main{
-  margin: 5rem 20rem;
+  margin: 3rem 20rem;
   }
+}
+
+.alert{
+  transform: translateX(0px) !important;
 }
 
 </style>

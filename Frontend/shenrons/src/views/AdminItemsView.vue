@@ -10,7 +10,6 @@
                     <th>Character</th>
                     <th>Price</th>
                     <th>Actions</th>
-
                 </tr>
             </thead>
             <tbody v-if="products">

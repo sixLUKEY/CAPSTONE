@@ -1,33 +1,34 @@
 <template>
-  <section class="bg-primary -skew-y-[10.5deg] pt-12 pb-32">
-    <div class="w-fit mx-auto flex skew-y-[10.5deg] stars -translate-y-12">
+  <section class="bg-primary -skew-y-[10.5deg] pt-12 pb-32 px-3 sm:px-0">
+    <div class="w-fit mx-auto flex skew-y-[10.5deg] stars -translate-y-12 select-none">
         <img src="../assets/Star.png" alt="star">
         <img src="../assets/Star.png" alt="star">
         <img src="../assets/Star.png" alt="star">
         <img src="../assets/Star.png" alt="star">
         <img src="../assets/Star.png" alt="star">
     </div>
-        <div class=" bg-white p-5 flex flex-col rounded-sm sm:mx-5 md:mx-5 lg:mx-20 xl:mx-80 skew-y-[10.5deg] featured">
-          <div class="flex justify-between font-bold">
-            <h3 class="md:text-5xl sm:text-4xl text-[#FFF100]">
+        <div class=" bg-white p-5 flex flex-col rounded-sm sm:mx-5 md:mx-5 lg:mx-20 xl:mx-80 skew-y-[10.5deg] featured text-center sm:text-start max-w-[350px] sm:max-w-none mx-auto">
+          <div class="sm:flex justify-between font-bold">
+            <h3 class="md:text-5xl sm:text-4xl text-[#FFF100] hidden sm:block">
               Saiyan Scouter | <span class="text-secondary">#113</span>
             </h3>
             <h5 class="text-2xl text-[#807F7F]">Vegeta</h5>
           </div>
-          <div class="flex text-dark gap-5">
-            <div class="flex-[5] flex flex-col gap-5 ">
+          <div class="flex flex-col sm:flex-row text-dark gap-5">
+            <div class="flex-[5] flex flex-col gap-2 sm:gap-5 order-2 sm:order-[0]">
+              <h3 class="text-2xl text-[#FFF100] font-bold sm:hidden">Saiyan Scouter | <span class="text-secondary">#113</span></h3>
               <h5 class="md:text-2xl sm:text-xl font-bold">Limited Edition Pink Reader</h5>
-              <p class="md:text-lg sm:text-base">
+              <p class="md:text-lg sm:text-base hidden sm:block">
                 Elevate your Saiyan power level with our authentic Saiyan Scouter -
                 a must-have for true Dragon Ball Z fans! This meticulously crafted
                 accessory brings the iconic device from the series to life, allowing
                 you to channel your inner Saiyan warrior.
               </p>
               <div class="flex justify-between">
-                <h4 class="text-4xl font-bold">R 520</h4>
+                <h4 class="text-2xl sm:text-4xl font-bold">R 520</h4>
                 <div class="flex gap-5 items-center">
                   <button
-                    class="bg-dark text-light py-2 px-4 rounded-sm font-bold flex items-center gap-3"
+                    class="bg-dark text-light py-2 px-4 rounded-sm font-bold flex items-center gap-3 text-sm sm:text-base"
                   >
                     Add to Cart
                     <span class="plus">
@@ -69,7 +70,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex-[4] flex items-center">
+            <div class="flex-[4] mx-auto flex justify-center items-center itemImg">
                 <img src="../assets/png-transparent-dragon-ball-frieza-vegeta-captain-ginyu-piccolo-radar-fictional-characters-audio-equipment-action-toy-figures1.png" alt="Scouter">
             </div>
           </div>
@@ -97,9 +98,9 @@ img{
     max-width: 100%;
 }
 
-@media screen and (max-width:301px) {
+@media screen and (max-width:640px) {
   .stars img{
-    height: 30px !important;
+    height: 40px !important;
   }
 }
 
@@ -124,6 +125,10 @@ svg{
 svg:hover{
   scale: 1.2;
   fill: red !important;
+}
+
+.itemImg{
+  max-width: 250px !important;
 }
 
 </style>

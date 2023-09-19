@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col min-h-[60vh] gap-5">
+  <main class="flex flex-col min-h-[80vh] gap-5">
     <div class="flex gap-5">
       <h2 class="text-5xl">{{ user.firstName }} {{ user.lastName }} | <span class="text-secondary">#{{ user.userID }}</span></h2>
     </div>
@@ -96,9 +96,9 @@ export default {
         .then((success) => {
             if ( success ){
                 this.$router.push('/home')
-                alert('updated succesffully')
+                this.$store.dispatch('successPop')  
             } else {
-                alert('Failed to update')
+              this.$store.dispatch('errorPop')
             }
         })
         .catch(( err ) => {

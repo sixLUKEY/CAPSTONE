@@ -29,9 +29,15 @@
 
             if ( response ){
               this.$store.dispatch('fetchUsers')
-              alert('User deleted successfully')
+              await new Promise((resolve) => {
+            this.$store.dispatch('successPop')  
+            resolve()
+          })
             } else {
-              alert('Failed to delete user')
+              await new Promise((resolve) => {
+            this.$store.dispatch('errorPop')
+            resolve()
+          })
             }
           }
         }

@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="xl:px-80 lg:px-20 md:px-5 sm:px-5 py-12 bg-primary text-light text-lg flex flex-col gap-8"
+    class="xl:px-80 lg:px-20 md:px-5 sm:px-5 sm:py-12 bg-primary p-3 text-light text-lg flex flex-col gap-8"
   >
     <div class="flex justify-between">
       <p>Copyright © 2023</p>
@@ -91,7 +91,7 @@
         ></a>
       </div>
     </div>
-    <div class="text-dark flex justify-between">
+    <div class="text-dark hidden sm:flex justify-between">
       <p class="cursor-pointer">Our buyer protection policy</p>
       <div class="flex gap-5">
         <router-link to="/items">Explore Products</router-link>
@@ -108,11 +108,7 @@ export default {};
 
 <style scoped>
 
-@media screen and (max-width:300px) {
-  footer{
-    padding: 5px 5px;
-  }
-}
+
 
 footer {
   font-family: "Bebas Neue", sans-serif !important;

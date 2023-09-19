@@ -1,5 +1,5 @@
 <template>
-    <main class="min-h-[50vh]">
+    <main class="min-h-[80vh]">
         <div class="flex gap-5 ms-auto w-fit text-4xl router relative items-center">
             <router-link to="/admin/items">
                 Items
@@ -8,7 +8,7 @@
                 Users
             </router-link>
         </div>
-        <router-view class="h-[50vh] overflow-scroll routeView"/>
+        <router-view class="h-[50vh] overflow-scroll routeView pe-3"/>
     </main>
 </template>
 

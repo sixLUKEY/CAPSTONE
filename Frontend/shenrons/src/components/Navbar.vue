@@ -1,8 +1,8 @@
 <template>
   <nav
-    class="flex justify-between items-end lg:px-20 xl:px-80 py-5 md:px-5 sm:px-5 bg-dark sticky top-0 z-[998]"
+    class=" flex justify-between items-end lg:px-20 xl:px-80 p-3 md:px-5 sm:px-5 bg-dark sticky top-0 z-[998]"
   >
-    <div class="logo sm:w-[30%] hidden sm:block">
+    <div class="logo sm:w-[30%] w-40 ">
       <router-link to="/home">
         <img
           src="https://i.postimg.cc/kg0b1yhV/Group-40.png"
@@ -11,7 +11,7 @@
       </router-link>
     </div>
     <ul
-      class="flex gap-5 text-sm sm:text-lg sm:gap-5 md:text-xl md:gap-5 lg:text-2xl lg:gap-5 xl:text-2xl xl:gap-8"
+      class=" hidden sm:flex gap-5 text-sm sm:text-lg sm:gap-5 md:text-xl md:gap-5 lg:text-2xl lg:gap-5 xl:text-2xl xl:gap-8"
     >
       <li>
         <router-link to="/home"> Home </router-link>
@@ -29,7 +29,7 @@
         <router-link to="/contact"> Contact </router-link>
       </li>
     </ul>
-    <div class="userControl sm:flex items-center text-sm hidden" >
+    <div class="userControl flex items-center text-sm"  >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="25"
@@ -53,7 +53,7 @@
   </nav>
 
   <aside
-    class="fixed top-0 right-0 z-[999] w-[400px] h-[100vh] pt-12 px-5 bg-black flex flex-col "
+    class="fixed top-0 right-0 z-[999] w-[280px] sm:w-[400px] h-[100vh] pt-12 px-5 bg-black flex flex-col "
     id="sidebar"
   >
     <div class="profileBox flex justify-between items-end gap-5">
@@ -71,7 +71,7 @@
           />
         </svg>
       </p>
-      <p class="text-3xl" v-if="userData">{{ user.firstName }} {{ user.lastName }}</p>
+      <p class="sm:text-3xl text-xl" v-if="userData">{{ user.firstName }} {{ user.lastName }}</p>
       <p v-else>...</p>
       <div class="ms-auto self-start closeDiv">
         <svg
@@ -369,9 +369,6 @@ nav ul li a.router-link-exact-active::after {
   transform: translateX(0%) !important;
 }
 
-@media screen and (max-width:300px) {
-  nav{
-    padding: 5px 5px;
-  }
-}
+
+
 </style>

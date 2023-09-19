@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col bg-white p-3 rounded-md gap-3">
     <div class="flex justify-between items-center font-bold">
-      <h4 class="text-secondary text-xl">#{{ product.prodID }}</h4>
-      <h4 class="text-dark text-xl">{{ product.prodCharacter }}</h4>
+      <h4 class="text-secondary text-3xl sm:text-xl">#{{ product.prodID }}</h4>
+      <h4 class="text-dark text-3xl sm:text-xl">{{ product.prodCharacter }}</h4>
       <router-link :to="{ name: 'singleItem', params: { id: product.prodID }}">
         <svg
           width="17"
@@ -23,22 +23,23 @@
       <img
         :src="product.url"
         :alt="product.prodName"
-        class="hover:scale-[1.01] transition hover:drop-shadow-xl"
+        class="hover:scale-[1.01] transition hover:drop-shadow-xl max-w-[250px] mx-auto"
       />
     </router-link>
-    <div class="font-bold">
+    <div class="font-bold text-center sm:text-start">
       <h3 class="text-black text-2xl">{{ product.prodName }}</h3>
       <h4 class="text-[#6F6F6F] text-xl">{{ product.model }}</h4>
     </div>
     <div class="flex justify-between">
       <h3 class="text-black text-3xl self-center font-bold">R{{ product.price }}</h3>
-      <button class="p-3 rounded-full bg-primary text-4xl font-bold add h-fit">
+      <button @click="addToCart( product.prodID )" class="p-3 rounded-full bg-primary text-4xl font-bold add h-fit">
         <svg
           width="20"
           height="20"
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          
         >
           <path
             d="M8 14V2"
@@ -89,24 +90,18 @@ export default {
           userID: this.userData.userID,
           id
         })
-        alert('added successfully')
+        this.$store.dispatch('successPop')
       } else {
-        alert('Error')
+        this.$store.dispatch('errorPop')
       }
     }
   },
   props: [
     'product'
   ],
-  mounted(){
-    this.$store.dispatch('fetchProduct', this.id)
-  },
   computed: {
-    product(){
-      return this.$store.state.product
-    },
-    id(){
-      return this.$route.params.id
+    userData(){
+      return this.$store.state.userData
     }
   }
 };

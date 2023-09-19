@@ -21,7 +21,12 @@ export default createStore({
     error: null,
     regStatus: null,
     logStatus: null,
-    cart: []
+    cart: [] || null
+  },
+  getters: {
+    cartTotalPrice( state ){
+      return state.cart.reduce(( total, product ) => total + parseFloat(product.price), 0)
+    }
   },
   mutations: {
     setProducts: ( state, products ) => {
@@ -110,7 +115,7 @@ export default createStore({
   actions: {
     async fetchProducts( context ){
       try{
-        let products = await (await fetch( prodUrl )).json()
+        let  products  = await (await fetch( prodUrl )).json()
         console.log( products )
         if ( products ){
           context.commit( "setProducts", products )
@@ -124,6 +129,7 @@ export default createStore({
     async fetchProduct( context, id ){
       try{
         let product = await ( await fetch( prodUrl + id )).json()
+        console.log( product )
         if ( product ){
           context.commit( "setProduct", product )
         } else {
@@ -210,9 +216,10 @@ export default createStore({
         })
 
         if ( response.status === 200 ){
-          commit( 'addToCart', response.data )
+          commit( 'addProductToCart', response.data )
+          console.log( response.data )
         } else {
-
+          alert('an error occurred')
         }
       } catch ( err ){
         console.error( err )
@@ -325,6 +332,20 @@ export default createStore({
       } catch ( err ){
         console.error( err )
       }
+    },
+    successPop(){
+      const pop = document.getElementById('success')
+      pop.classList.toggle('alert')
+      setTimeout(() => {
+        pop.classList.toggle('alert')
+      }, 2000);
+    },
+    errorPop(){
+      const pop = document.getElementById('error')
+      pop.classList.toggle('alert')
+      setTimeout(() => {
+        pop.classList.toggle('alert')
+      }, 2000)
     }
   }
 })

@@ -112,6 +112,11 @@ const routes = [
     name: 'admin edit item',
     component: () => import('../views/EditItemView.vue'),
     props: true
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: () => import('../views/CheckoutView.vue')
   }
 ]
 

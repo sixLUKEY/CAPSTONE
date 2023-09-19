@@ -3,16 +3,16 @@
         <div class="bg-[#6666664b] background rounded-md">
 
         </div>
-        <div class=" flex flex-col left gap-5 justify-between">
-            <p class="text-5xl">
+        <div class=" flex flex-col left gap-5 justify-between text-center sm:text-start">
+            <p class=" text-2xl sm:text-5xl">
                 Join a growing community of Dragon Ball Z fans
             </p>
 
-            <p class="text-xl">
+            <p class=" sm:text-xl">
                 Our customers love us! Don't just take our word for it – read what they have to say about 'Shenron's Tiny Trinkets.' These reviews are a testament to our commitment to quality and the Dragon Ball Z community.
             </p>
 
-            <p class="py-2 px-4 bg-white rounded-sm w-fit text-black text-sm tip">
+            <p class="py-2 px-4 bg-white rounded-sm w-fit text-black sm:text-sm tip self-center sm:self-start">
                 Want to know More?
                 <br>
                 CHeck out our <router-link to="/contact" class="text-red-500">FAQ's</router-link>
@@ -68,7 +68,7 @@
     }
 
     .background{
-        grid-column: 2 / 11;
+        grid-column: 2 / -2;
         grid-row:  1 / -1;
     }
 
@@ -78,10 +78,17 @@
         filter: drop-shadow(-8px 8px 2px #000);
     }
 
+    @media screen and ( max-width:640px) {
+        .left{
+            grid-column: 1 / -1;
+        }
+    }
+
     section > img{
-        grid-column: 4 / 9;
+        grid-column: 4 / -4;
         grid-row: 2 / -2;
         opacity: 0.06;
+        z-index: -10;
     }
 
     h6 > span{

@@ -27,9 +27,15 @@
 
             if ( response ){
               this.$store.dispatch('fetchProducts')
-              alert('Product deleted successfully!')
+              await new Promise((resolve) => {
+            this.$store.dispatch('successPop')  
+            resolve()
+          })
             } else {
-              alert('Failed to delete product')
+              await new Promise((resolve) => {
+            this.$store.dispatch('errorPop')
+            resolve()
+          })
             }
           }
         }

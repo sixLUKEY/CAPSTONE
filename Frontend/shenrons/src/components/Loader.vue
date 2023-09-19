@@ -2,6 +2,7 @@
   <img
     src="https://i.postimg.cc/HkwGsTFH/1-star-min.png"
     alt="loader dragon ball"
+    class="max-w-[100px]"
   />
 </template>
 

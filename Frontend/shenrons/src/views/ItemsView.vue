@@ -1,14 +1,14 @@
 <template>
-  <main class="min-h-[60vh]">
-    <div class="flex justify-between">
-      <div class="flex flex-col">
-        <div class="text-xl">
-          Sort By:
+  <main class="min-h-[80vh] px-3 sm:px-0">
+    <div class="flex flex-col sm:flex-row justify-between gap-5 sm:gap-0">
+      <div class="flex justify-between sm:flex-col sm:order-[0] order-2 filters">
+        <div class="sm:text-xl text-sm flex gap-1 ">
+          Filter By:
           <select
             name="sort"
             id="sortItems"
             v-model="selectedSort"
-            class="text-black"
+            class="text-black bg-primary rounded-full text-sm sm:text-base"
           >
             <option value="sort">Sort</option>
             <option value="alphabetical">Alphabetical</option>
@@ -16,15 +16,23 @@
             <option value="toHigh">Price: Low to Hi</option>
           </select>
         </div>
-        <div class="text-xl flex">
-          Filter By:
-          <button type="button" @click="selectFilter('all')">All</button>
-          <button type="button" @click="selectFilter('Vegeta')">Vegeta</button>
-          <button type="button" @click="selectFilter('Goku')">Goku</button>
+        <div class="sm:text-xl text-sm flex gap-1 ">
+          Sort By:
+          <select
+            name="sort"
+            id="sortItems"
+            v-model="selectedSort"
+            class="text-black text-sm sm:text-base bg-primary rounded-full"
+          >
+            <option value="sort">Sort</option>
+            <option value="alphabetical">Alphabetical</option>
+            <option value="toLow">Price: Hi to Low</option>
+            <option value="toHigh">Price: Low to Hi</option>
+          </select>
         </div>
       </div>
       <div
-        class="bg-primary rounded-full p-3 flex items-center justify-between gap-3"
+        class="bg-primary rounded-full p-3 flex items-center justify-between gap-3 search"
       >
         <input
           type="search"
@@ -55,11 +63,11 @@
     </div>
 
     <div
-      class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-24 gap-5"
+      class="productContainer grid md:grid-cols-3 sm:grid-cols-2 my-12 gap-5"
       v-if="products"
     >
       <ProductItem
-        v-for="product of products"
+        v-for="product of Products"
         :key="product.prodID"
         :product="product"
       />
@@ -74,12 +82,19 @@
 import ProductItem from "@/components/ProductItem.vue";
 import ItemView from "@/components/ItemView.vue";
 import Loader from "@/components/Loader.vue";
+import { gsap } from 'gsap'
 
 export default {
+  mounted(){
+    let tl = gsap.timeline({ defaults: { duration: 0.5 } })
+    
+    tl.from('.search', { opacity: 0, y: -50})
+    .from('.filters', { opacity: 0, y:-50}, "-=0.3")
+  },
   data() {
     return {
       selectedFilter: "all",
-      selectedSort: "sort",
+      selectedSort: "alphabetical",
       products: [],
       searchItem: "",
     };
@@ -90,12 +105,14 @@ export default {
     Loader,
   },
   computed: {
-    products() {
+    Products() {
       return this.$store.state.products;
     },
     sortedProducts() {
-      let sorted = this.products;
+      let  sorted  = this.Products;
 
+      console.log( sorted )
+      console.log( this.selectedFilter )
       if (this.selectedFilter && this.selectedFilter !== "all") {
         sorted = sorted.filter(
           (product) => product.prodCharacter === this.selectedFilter
@@ -114,12 +131,9 @@ export default {
     },
     filteredProducts() {
       return this.sortedProducts.filter((product) => {
-        product.prodName.toLowerCase().includes(this.searchItem.toLowerCase);
+        product.prodName.toLowerCase().includes(this.searchItem.toLowerCase());
       });
     },
-  },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
   },
   methods: {
     selectFilter(filter) {
@@ -136,11 +150,12 @@ input::placeholder {
   font-family: "Bebas Neue", sans-serif !important;
 }
 
-input {
+input, .filters {
   font-family: "Bebas Neue", sans-serif !important;
 }
 
 input:focus {
   outline: none;
 }
+
 </style>

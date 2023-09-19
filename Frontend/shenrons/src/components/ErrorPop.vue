@@ -14,4 +14,9 @@
 
 <style scoped>
 
+    #error{
+        transform: translateX(1000px);
+        transition: 0.2s;
+    }
+
 </style>

@@ -4,13 +4,13 @@
       <form
       action="https://formspree.io/f/moqoldad"
         method="POST"
-        class="flex-1 md:flex-[3] flex flex-col gap-5 text-white"
+        class="flex-1 md:flex-[3] flex flex-col gap-5 text-white max-w-[320px] mx-auto sm:max-w-none sm:mx-0"
       >
-        <h2 class="text-6xl flex gap-5 items-center">
-          Contact Us <span class="flex-1 h-[2px] bg-primary"></span>
+        <h2 class="text-6xl flex gap-5 items-center heading">
+          Contact Us <span class="flex-1 h-[2px] bg-primary orange"></span>
         </h2>
         <input
-          class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm"
+          class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm name"
           name="fullname"
           type="text"
           placeholder="FullName"
@@ -19,7 +19,7 @@
             oninput="this.setCustomValidity('')"
         />
         <input
-          class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm"
+          class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm email"
           name="email"
           type="email"
           placeholder="Email"
@@ -28,7 +28,7 @@
             oninput="this.setCustomValidity('')"
         />
         <textarea
-          class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm"
+          class="text-xl px-5 py-2 bg-[#1E1E1E] rounded-sm message"
           name="message"
           id="message"
           cols="30"
@@ -38,17 +38,17 @@
           oninvalid="this.setCustomValidity('A message for context will be much appreciated')"
             oninput="this.setCustomValidity('')"
         ></textarea>
-        <div class="flex items-center gap-5">
-          <div class="flex-1 h-[2px] bg-[#7C35A9]"></div>
+        <div class="flex items-center gap-5 purple">
+          <div class="flex-1 h-[2px] bg-[#7C35A9] "></div>
           <button
             type="submit"
-            class="bg-primary text-white w-fit rounded-sm px-5 py-2 text-2xl hover:opacity-90 transition font-bold"
+            class="bg-primary text-white w-fit rounded-sm px-5 py-2 text-2xl hover:opacity-90 transition font-bold "
           >
             Submit
           </button>
         </div>
       </form>
-      <div class="flex-1 md:flex-[2] flex items-center">
+      <div class="flex-1 md:flex-[2] hidden items-center sm:flex roshi1">
         <img
           src="https://i.postimg.cc/8kMqh9xD/roshi-min.png"
           alt="master roshi"
@@ -57,7 +57,7 @@
     </div>
 
     <div class="flex gap-10 my-48">
-      <div class="flex-[2]">
+      <div class="flex-[2] sm:block hidden">
         <img
           src="https://i.postimg.cc/QCsyMx8t/roshi2-min.png"
           alt="master roshi 2"
@@ -85,8 +85,8 @@
       </div>
     </div>
 
-    <div class="flex bg-[#1E1E1E] p-2 justify-between rounded-sm">
-      <p class="flex text-xl md:text-lg items-center gap-1">
+    <div class="flex sm:flex-row flex-col items-center sm:items-start gap-5 sm:gap-0 py-5 bg-[#1E1E1E] p-2 justify-between rounded-sm">
+      <p class="flex sm:text-xl md:text-lg items-center gap-1">
         <span
           ><svg
             width="25"
@@ -102,7 +102,7 @@
         ></span>
         6 Suikerbekkie lane, robinvale, cape town 7347
       </p>
-      <p class="flex text-xl md:text-lg items-center gap-1">
+      <p class="flex sm:text-xl md:text-lg items-center gap-1">
         <span>
           <svg
             width="25"
@@ -223,14 +223,14 @@
     </div>
 
     <section
-      class="w-full bg-[#1E1E1E] p-5 my-24 rounded-sm flex flex-col gap-5 relative"
+      class="w-full bg-[#1E1E1E] p-5 my-24 rounded-sm flex flex-col gap-5 relative text-center sm:text-start"
     >
-      <h4 class="text-3xl">
+      <h4 class="sm:text-3xl text-xl">
         If you have any questions or need assistance, feel free to reach out to
         our customer support team. We're here to help!
       </h4>
 
-      <ul class="text-xl">
+      <ul class="sm:text-xl">
         <li>
           <span class="text-secondary">-</span> Email:
           support@shenronstrinkets.com
@@ -238,16 +238,16 @@
         <li><span class="text-secondary">-</span> Phone: +1-123-456-7890</li>
       </ul>
 
-      <h5 class="text-2xl">
+      <h5 class=" text-xl sm:text-2xl">
         Our customer support hours are &nbsp;<span class="text-primary"
           >Monday to Friday, 9:00 AM - 6:00 PM (local time).</span
         >
       </h5>
 
-      <h5 class="text-2xl flex flex-col gap-3">
+      <h5 class=" text-xl sm:text-2xl flex flex-col gap-3">
         We take pride in providing exceptional customer support. Our commitment
         to you:
-        <ul class="text-xl">
+        <ul class="sm:text-xl text-base flex flex-col gap-3">
           <li>
             <span class="text-secondary">-</span> Quick Response: We strive to
             respond to all inquiries within 24 hours during our business hours.
@@ -279,7 +279,24 @@
 </template>
 
 <script>
-export default {};
+
+import { gsap } from 'gsap'
+
+export default {
+
+  mounted(){
+    let tl = gsap.timeline({ defaults: {duration: 0.5}})
+
+    tl.from('.orange', { opacity: 0, x: -70 } )
+    .from('.heading', { opacity: 0, x: -70 }, '-=0.4' )
+    .from('.name', { opacity: 0, x: -70}, '-=0.4')
+    .from('.email', { opacity: 0, x: -70}, '-=0.4')
+    .from('.message', { opacity: 0, x: -70}, '-=0.4')
+    .from('.purple', { opacity: 0, x: -70}, '-=0.4')
+    .from('.roshi1', { opacity: 0, x: 50, duration: 0.4})
+  }
+
+};
 </script>
 
 <style scoped>

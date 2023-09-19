@@ -1,5 +1,5 @@
 <template>
-     <main class="min-h-[60vh] flex flex-col gap-5" v-if="product">
+     <main class="min-h-[80vh] flex flex-col gap-5" v-if="product">
 
         <h2 class="text-5xl">{{ product.prodName }} | <span class="text-secondary">#{{ product.prodID }}</span></h2>
 
@@ -131,10 +131,10 @@
                 this.$store.dispatch('updateProduct', data)
                 .then((success) => {
                     if ( success ){
+                      this.$store.dispatch('successPop')  
                         this.$router.push('/admin/items')
-                        alert('Updated successfully')
                     } else {
-                        alert('something went wrong')
+                      this.$store.dispatch('errorPop')
                     }
                 })
                 .catch(( err ) => {
