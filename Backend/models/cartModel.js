@@ -6,7 +6,7 @@ export const getCart = ( id, result ) => {
         `SELECT cartID, prodName, descr, model, prodCharacter, price, prodLevel, url, quantity 
         FROM users
         INNER JOIN cart ON users.userID = cart.userID
-        INNER JOIN products ON cart.productID = products.prodID
+        INNER JOIN products ON cart.prodID = products.prodID
         WHERE cart.userID = ? `,
         [id],
         ( err, results ) => {
